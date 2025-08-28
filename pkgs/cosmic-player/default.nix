@@ -16,17 +16,17 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cosmic-player";
-  version = "999";
+  version = "epoch-1.0.0-alpha.7-unstable-2025-08-15";
 
   # nixpkgs-update: no auto update
   src = fetchFromGitHub {
     owner = "pop-os";
     repo = "cosmic-player";
-    rev = "1503065026cae75e6e38404773f6d18e06563cf2";
-    hash = "sha256-/xf3IOFVpctfgaaNNq2HUzK/qHt7Qikcv0JKoPJboRU=";
+    rev = "58c778832b188df676a5cb8e3b18f4a27f4636d7";
+    hash = "sha256-QLyedS2bfn0iQrrlbOswhPLb1R/AK7z25TfQyF9p1rc=";
   };
 
-  cargoHash = "sha256-0RrtErTR2J5mn/Lfppk+5X8UUOC2LN65krAq1uz/O4M=";
+  cargoHash = "sha256-DodFIfthiGFSvXWfPsPjFhNY6G7z3lb6pfc5HtUXhMo=";
 
   postPatch = ''
     substituteInPlace justfile --replace-fail '#!/usr/bin/env' "#!$(command -v env)"
