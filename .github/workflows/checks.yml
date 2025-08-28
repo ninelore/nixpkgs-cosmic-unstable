@@ -5,9 +5,9 @@ on:
   pull_request:
   push:
     branches: [main]
-    paths: 
-      - '**/*.nix'
-      - 'flake.lock'
+    paths:
+      - "**/*.nix"
+      - "flake.lock"
 
 jobs:
   nix:
@@ -18,7 +18,7 @@ jobs:
       - uses: DeterminateSystems/nix-installer-action@v19
         with:
           extra-conf: |
-            extra-platforms = aarch64-linux aarch64-darwin x86_64-darwin
+            extra-platforms = aarch64-linux
       - uses: actions/checkout@v5
       - name: Run nix flake check
         run: nix flake check --all-systems

@@ -17,10 +17,14 @@
       formatter = forSystems (system: inputs.nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
 
       githubActions = self.lib.mkGithubMatrix {
-        sourceAttrSet = self.legacyPackages;
-        attrPrefix = "legacyPackages";
+        sourceAttrSet = self.packages;
+        attrPrefix = "packages";
         lib = inputs.nixpkgs.lib;
       };
+
+      packageList = inputs.nixpkgs.lib.uniqueStrings (
+        inputs.nixpkgs.lib.map (x: x.name) self.githubActions.matrix.include
+      );
 
       packages = forSystems (system: import ./pkgs { inherit inputs system; });
 

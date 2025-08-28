@@ -32,11 +32,6 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   cargoHash = "sha256-qfPLDgGeYGSO0ZKJooXRK0NnTqzJ6zq6RhBpTTUusQY=";
 
-  # COSMIC applications now uses vergen for the About page
-  # Update the COMMIT_DATE to match when the commit was made
-  env.VERGEN_GIT_COMMIT_DATE = "2025-04-17";
-  env.VERGEN_GIT_SHA = finalAttrs.src.tag;
-
   postPatch = ''
     substituteInPlace justfile --replace-fail '#!/usr/bin/env' "#!$(command -v env)"
   '';

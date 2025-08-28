@@ -1,17 +1,32 @@
-name: Update lockfile
+name: Updates
 on:
   workflow_dispatch:
   schedule:
-  - cron: "0 3 * * *"
+    - cron: "0 2 * * *"
 
 jobs:
-  lockfile:
-    name: "Update lockfile"
+  nix-update:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@v19
-      - name: Update flake.lock
-        id: update
-        uses: DeterminateSystems/update-flake-lock@v27
+      - uses: DeterminateSystems/nix-installer-action@v19
+      - name: Update packages
+        run: |
+          set -Eeu
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          nix eval --json .#packageList | nix run nixpkgs#jq -- -r '.[]' | while read i; do
+            nix run nixpkgs#nix-update -- $i --flake --commit --version=branch
+          done
+          nix flake update --commit-lock-file
+          git push
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: ci/update
+          delete-branch: true
+          title: "Updates"
+          body: |
+            Update everything
+
+            See commit messages for details

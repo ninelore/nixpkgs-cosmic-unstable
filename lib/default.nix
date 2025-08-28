@@ -122,8 +122,6 @@ let
             )
           );
         };
-
-        updateAll = { };
       };
   };
 in
