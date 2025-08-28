@@ -4,7 +4,6 @@
   rustPlatform,
   fetchFromGitHub,
   libcosmicAppHook,
-  git,
   pkg-config,
   util-linux,
   libgbm,
@@ -24,16 +23,18 @@ rustPlatform.buildRustPackage (finalAttrs: {
     repo = "xdg-desktop-portal-cosmic";
     rev = "7e803d13e3b4d28f2954a628675dcc2be4f3765c";
     hash = "sha256-rxUVVvNlb3IjVfCeIIKzDecN1TDZ2WdmxVwdTngXMAI=";
+    deepClone = true;
   };
 
   cargoHash = "sha256-NQoqbfNEMWowo2KxdgKqTbn/BDgv218NFCCGYR9OAO0=";
+
+  env.VERGEN_GIT_SHA = finalAttrs.src.rev;
 
   separateDebugInfo = true;
 
   nativeBuildInputs = [
     libcosmicAppHook
     rustPlatform.bindgenHook
-    git
     pkg-config
     util-linux
   ];

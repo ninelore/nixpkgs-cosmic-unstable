@@ -9,6 +9,7 @@
   util-linuxMinimal,
   dbus,
   glib,
+  libclang,
   libinput,
   pipewire,
   pulseaudio,
@@ -41,6 +42,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
     dbus
     glib
     libinput
+    libclang
     pipewire
     pulseaudio
     udev

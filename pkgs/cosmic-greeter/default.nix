@@ -5,7 +5,6 @@
   rustPlatform,
   libcosmicAppHook,
   cmake,
-  git,
   just,
   libinput,
   linux-pam,
@@ -28,12 +27,13 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   cargoHash = "sha256-X/tSofi4aNtA5MeWCy03Tnnz3AxIF8MCZ7ofeMSWNCc=";
 
+  env.VERGEN_GIT_SHA = finalAttrs.src.rev;
+
   cargoBuildFlags = [ "--all" ];
 
   nativeBuildInputs = [
     rustPlatform.bindgenHook
     cmake
-    git
     just
     libcosmicAppHook
   ];

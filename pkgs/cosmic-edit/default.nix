@@ -33,6 +33,8 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   cargoHash = "sha256-DoAPF06Jf2dQCEUPPYPHQSJ9UIBdMoogS/A/n8JyzRM=";
 
+  env.VERGEN_GIT_SHA = finalAttrs.src.rev;
+
   postPatch = ''
     substituteInPlace justfile --replace-fail '#!/usr/bin/env' "#!$(command -v env)"
   '';

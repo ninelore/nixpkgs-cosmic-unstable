@@ -30,9 +30,15 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   cargoHash = "sha256-wGq7Cdq56Hnzww+IVXCtZet4Zojj8VUmmsjsg53XHe8=";
 
+  # Disable LTO due to RAM constraints on CI
+  # cargoBuildFlags = [
+  #   "--config"
+  #   "lto='off'"
+  # ];
+
   auditable = false;
 
-  separateDebugInfo = true;
+  # separateDebugInfo = true;
 
   nativeBuildInputs = [
     libcosmicAppHook
