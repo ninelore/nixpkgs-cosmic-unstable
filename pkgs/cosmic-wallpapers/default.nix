@@ -7,7 +7,7 @@
 
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "cosmic-wallpapers";
-  version = "999";
+  version = "epoch-1.0.0-alpha.7-unstable-2025-04-08";
 
   # nixpkgs-update: no auto update
   src = fetchFromGitHub {
