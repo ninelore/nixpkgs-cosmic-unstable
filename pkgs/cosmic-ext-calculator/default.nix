@@ -9,16 +9,15 @@
   fetchFromGitHub,
   libcosmicAppHook,
   just,
-  nix-update-script,
 }:
 rustPlatform.buildRustPackage rec {
   pname = "cosmic-ext-calculator";
-  version = "0.1.1";
+  version = "999";
 
   src = fetchFromGitHub {
     owner = "cosmic-utils";
     repo = "calculator";
-    tag = version;
+    rev = "277343ec73ae00d5d350a8993d1b5a5c46f3fbcd";
     hash = "sha256-UO3JKPsztptNEFAxolRui9FxtCsTRgpXhHH242i9b6E=";
   };
 
@@ -41,20 +40,12 @@ rustPlatform.buildRustPackage rec {
     "target/${stdenv.hostPlatform.rust.cargoShortTarget}/release/cosmic-ext-calculator"
   ];
 
-  passthru.updateScript = nix-update-script {
-    extraArgs = [
-      "--version"
-      "unstable"
-    ];
-  };
-
   meta = {
     changelog = "https://github.com/cosmic-utils/calculator/releases/tag/${version}";
     description = "Calculator for the COSMIC Desktop Environment";
     homepage = "https://github.com/cosmic-utils/calculator";
     license = lib.licenses.gpl3Only;
     mainProgram = "cosmic-ext-calculator";
-    maintainers = with lib.maintainers; [ HeitorAugustoLN ];
     platforms = lib.platforms.linux;
     sourceProvenance = [ lib.sourceTypes.fromSource ];
   };

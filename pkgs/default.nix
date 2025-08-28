@@ -8,6 +8,7 @@ with import inputs.nixpkgs {
   cosmic-applibrary = callPackage ./cosmic-applibrary { };
   cosmic-bg = callPackage ./cosmic-bg { };
   cosmic-comp = callPackage ./cosmic-comp { };
+  cosmic-clipboard-manager = callPackage ./cosmic-clipboard-manager { };
   cosmic-edit = callPackage ./cosmic-edit { };
   cosmic-ext-calculator = callPackage ./cosmic-ext-calculator { };
   cosmic-ext-ctl = callPackage ./cosmic-ext-ctl { };
@@ -31,4 +32,5 @@ with import inputs.nixpkgs {
   cosmic-term = callPackage ./cosmic-term { };
   cosmic-wallpapers = callPackage ./cosmic-wallpapers { };
   cosmic-workspaces-epoch = callPackage ./cosmic-workspaces-epoch { };
+  xdg-desktop-portal-cosmic = callPackage ./xdg-desktop-portal-cosmic { };
 }

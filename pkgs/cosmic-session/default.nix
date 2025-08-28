@@ -7,18 +7,17 @@
   dbus,
   stdenv,
   xdg-desktop-portal-cosmic,
-  nix-update-script,
 }:
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cosmic-session";
-  version = "1.0.0-alpha.7";
+  version = "999";
 
   # nixpkgs-update: no auto update
   src = fetchFromGitHub {
     owner = "pop-os";
     repo = "cosmic-session";
-    tag = "epoch-${finalAttrs.version}";
+    rev = "80209d5aadcfc05803eaa5b5099a5db1550d3fb1";
     hash = "sha256-vozm4vcXV3RB9Pk6om1UNCfGh80vIVJvSwbzwGDQw3Y=";
   };
 
@@ -54,19 +53,11 @@ rustPlatform.buildRustPackage (finalAttrs: {
     ORCA = "orca"; # get orca from $PATH
   };
 
-  passthru.updateScript = nix-update-script {
-    extraArgs = [
-      "--version"
-      "unstable"
-    ];
-  };
-
   meta = {
     homepage = "https://github.com/pop-os/cosmic-session";
     description = "Session manager for the COSMIC desktop environment";
     license = lib.licenses.gpl3Only;
     mainProgram = "cosmic-session";
-    teams = [ lib.teams.cosmic ];
     platforms = lib.platforms.linux;
   };
 })

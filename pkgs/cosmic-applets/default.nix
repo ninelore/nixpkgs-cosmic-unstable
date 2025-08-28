@@ -14,30 +14,21 @@
   pulseaudio,
   udev,
   xkeyboard_config,
-  nix-update-script,
 }:
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cosmic-applets";
-  version = "1.0.0-alpha.7";
+  version = "999";
 
   # nixpkgs-update: no auto update
   src = fetchFromGitHub {
     owner = "pop-os";
     repo = "cosmic-applets";
-    tag = "epoch-${finalAttrs.version}";
+    rev = "f26992e41a7a68aafdd74db4b3c78560282f4e05";
     hash = "sha256-DmU9Dlb8w3a8U+oSGwWARPh1SRbv/8TW7TO9SSvDe1U=";
   };
 
   cargoHash = "sha256-wWs3B5hh2DP93i+4gGDTi+7NT4bj8ULJ+fT95sXxUdg=";
-
-  patches = [
-    (fetchpatch2 {
-      name = "fix-bluetooth-dbus-spam.patch";
-      url = "https://github.com/pop-os/cosmic-applets/commit/b6bb982f2dace0a3d19c78b4b4247760a8010d5b.patch?full_index=1";
-      hash = "sha256-S5F9rqYrB38T9R6i/n/j3s79Xeh6BMmNkC+E2kTsus4=";
-    })
-  ];
 
   nativeBuildInputs = [
     just
@@ -73,18 +64,10 @@ rustPlatform.buildRustPackage (finalAttrs: {
     )
   '';
 
-  passthru.updateScript = nix-update-script {
-    extraArgs = [
-      "--version"
-      "unstable"
-    ];
-  };
-
   meta = {
     homepage = "https://github.com/pop-os/cosmic-applets";
     description = "Applets for the COSMIC Desktop Environment";
     license = lib.licenses.gpl3Only;
-    teams = [ lib.teams.cosmic ];
     platforms = lib.platforms.linux;
   };
 })

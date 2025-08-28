@@ -17,7 +17,6 @@
   util-linux,
   cosmic-randr,
   xkeyboard_config,
-  nix-update-script,
 }:
 let
   libcosmicAppHook' = (libcosmicAppHook.__spliced.buildHost or libcosmicAppHook).override {
@@ -26,13 +25,13 @@ let
 in
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cosmic-settings";
-  version = "1.0.0-alpha.7";
+  version = "999";
 
   # nixpkgs-update: no auto update
   src = fetchFromGitHub {
     owner = "pop-os";
     repo = "cosmic-settings";
-    tag = "epoch-${finalAttrs.version}";
+    rev = "bc70106fe568c5abf54fa18befe65b2b3f521e27";
     hash = "sha256-rrPgCXl4uD4Gvstgj9Sdv6rB/0d8wa56CdBjAkTLQG8=";
   };
 
@@ -77,19 +76,11 @@ rustPlatform.buildRustPackage (finalAttrs: {
     )
   '';
 
-  passthru.updateScript = nix-update-script {
-    extraArgs = [
-      "--version"
-      "unstable"
-    ];
-  };
-
   meta = {
     description = "Settings for the COSMIC Desktop Environment";
     homepage = "https://github.com/pop-os/cosmic-settings";
     license = lib.licenses.gpl3Only;
     mainProgram = "cosmic-settings";
-    teams = [ lib.teams.cosmic ];
     platforms = lib.platforms.linux;
   };
 })

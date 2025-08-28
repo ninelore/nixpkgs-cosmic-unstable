@@ -3,17 +3,16 @@
   rustPlatform,
   fetchFromGitHub,
   versionCheckHook,
-  nix-update-script,
   cosmic-comp,
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cosmic-ext-ctl";
-  version = "1.5.0";
+  version = "999";
 
   src = fetchFromGitHub {
     owner = "cosmic-utils";
     repo = "cosmic-ctl";
-    tag = "v${finalAttrs.version}";
+    rev = "08b4e26ceddcba8d3df8df29ae865055a5bc3a04";
     hash = "sha256-URqNhkC1XrXYxr14K6sT3TLso38eWLMA+WplBdj52Vg=";
   };
 
@@ -23,19 +22,11 @@ rustPlatform.buildRustPackage (finalAttrs: {
   nativeInstallCheckInputs = [ versionCheckHook ];
   versionCheckProgram = "${placeholder "out"}/bin/cosmic-ctl";
 
-  passthru.updateScript = nix-update-script {
-    extraArgs = [
-      "--version"
-      "unstable"
-    ];
-  };
-
   meta = {
     description = "CLI for COSMIC Desktop configuration management";
     changelog = "https://github.com/cosmic-utils/cosmic-ctl/releases/tag/v${finalAttrs.version}";
     homepage = "https://github.com/cosmic-utils/cosmic-ctl";
     license = lib.licenses.gpl3Only;
-    maintainers = with lib.maintainers; [ HeitorAugustoLN ];
     mainProgram = "cosmic-ctl";
     inherit (cosmic-comp.meta) platforms;
   };

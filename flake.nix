@@ -22,7 +22,7 @@
         lib = inputs.nixpkgs.lib;
       };
 
-      legacyPackages = forSystems (system: import ./pkgs { inherit inputs system; });
+      packages = forSystems (system: import ./pkgs { inherit inputs system; });
 
       lib = import ./lib;
 

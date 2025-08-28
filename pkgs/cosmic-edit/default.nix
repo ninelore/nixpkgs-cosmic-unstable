@@ -16,18 +16,17 @@
   wayland,
   xorg,
   vulkan-loader,
-  nix-update-script,
 }:
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cosmic-edit";
-  version = "1.0.0-alpha.7";
+  version = "999";
 
   # nixpkgs-update: no auto update
   src = fetchFromGitHub {
     owner = "pop-os";
     repo = "cosmic-edit";
-    tag = "epoch-${finalAttrs.version}";
+    rev = "d4294713d8fc5c44ed7c9b1957aa6db7ee16a4d4";
     hash = "sha256-mgUSkYtc+i9pXv0n3zLHwBXFxfeWlhbsFJKa7X+mI98=";
   };
 
@@ -85,19 +84,11 @@ rustPlatform.buildRustPackage (finalAttrs: {
       --suffix XDG_DATA_DIRS : "${cosmic-icons}/share"
   '';
 
-  passthru.updateScript = nix-update-script {
-    extraArgs = [
-      "--version"
-      "unstable"
-    ];
-  };
-
   meta = with lib; {
     homepage = "https://github.com/pop-os/cosmic-edit";
     description = "Text Editor for the COSMIC Desktop Environment";
     mainProgram = "cosmic-edit";
     license = licenses.gpl3Only;
-    teams = [ teams.cosmic ];
     platforms = platforms.linux;
   };
 })

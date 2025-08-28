@@ -6,27 +6,21 @@
   just,
   libcosmicAppHook,
   glib,
-  nix-update-script,
 }:
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cosmic-files";
-  version = "1.0.0-alpha.7";
+  version = "999";
 
   # nixpkgs-update: no auto update
   src = fetchFromGitHub {
     owner = "pop-os";
     repo = "cosmic-files";
-    tag = "epoch-${finalAttrs.version}";
+    rev = "63176a1e2a942c7d2f22999f93fc963e2f8039c3";
     hash = "sha256-bI5yTpqU2N6hFwI9wi4b9N5onY5iN+8YDM3bSgdYxjQ=";
   };
 
   cargoHash = "sha256-7AOdSk9XIXFCDyCus3XgOK3ZBVa4CvX+NFM0jHf7Wbs=";
-
-  env = {
-    VERGEN_GIT_COMMIT_DATE = "2025-04-22";
-    VERGEN_GIT_SHA = finalAttrs.src.tag;
-  };
 
   nativeBuildInputs = [
     just
@@ -90,19 +84,11 @@ rustPlatform.buildRustPackage (finalAttrs: {
     runHook postCheck
   '';
 
-  passthru.updateScript = nix-update-script {
-    extraArgs = [
-      "--version"
-      "unstable"
-    ];
-  };
-
   meta = {
     homepage = "https://github.com/pop-os/cosmic-files";
     description = "File Manager for the COSMIC Desktop Environment";
     license = lib.licenses.gpl3Only;
     mainProgram = "cosmic-files";
-    teams = [ lib.teams.cosmic ];
     platforms = lib.platforms.linux;
   };
 })

@@ -3,12 +3,11 @@
   stdenv,
   fetchFromGitHub,
   wayland-scanner,
-  nix-update-script,
 }:
 
 stdenv.mkDerivation {
   pname = "cosmic-protocols";
-  version = "0-unstable-2025-08-12";
+  version = "999";
 
   src = fetchFromGitHub {
     owner = "pop-os";
@@ -20,13 +19,6 @@ stdenv.mkDerivation {
   makeFlags = [ "PREFIX=${placeholder "out"}" ];
   nativeBuildInputs = [ wayland-scanner ];
 
-  passthru.updateScript = nix-update-script {
-    extraArgs = [
-      "--version"
-      "unstable"
-    ];
-  };
-
   meta = {
     homepage = "https://github.com/pop-os/cosmic-protocols";
     description = "Additional wayland-protocols used by the COSMIC desktop environment";
@@ -34,7 +26,6 @@ stdenv.mkDerivation {
       mit
       gpl3Only
     ];
-    teams = [ lib.teams.cosmic ];
     platforms = lib.platforms.linux;
   };
 }
