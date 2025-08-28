@@ -1,0 +1,24 @@
+name: Checks
+on:
+  workflow_dispatch:
+  workflow_call:
+  pull_request:
+  push:
+    branches: [main]
+    paths: 
+      - '**/*.nix'
+      - 'flake.lock'
+
+jobs:
+  nix:
+    name: Nix Flake Checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: docker/setup-qemu-action@v3
+      - uses: DeterminateSystems/nix-installer-action@v19
+        with:
+          extra-conf: |
+            extra-platforms = aarch64-linux aarch64-darwin x86_64-darwin
+      - uses: actions/checkout@v5
+      - name: Run nix flake check
+        run: nix flake check --all-systems
