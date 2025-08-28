@@ -2,7 +2,6 @@
   lib,
   stdenv,
   fetchFromGitHub,
-  fetchpatch2,
   rustPlatform,
   libcosmicAppHook,
   just,
@@ -11,6 +10,7 @@
   dbus,
   glib,
   libinput,
+  pipewire,
   pulseaudio,
   udev,
   xkeyboard_config,
@@ -41,6 +41,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
     dbus
     glib
     libinput
+    pipewire
     pulseaudio
     udev
   ];

@@ -4,6 +4,7 @@
   rustPlatform,
   fetchFromGitHub,
   pkg-config,
+  git,
   just,
   libcosmicAppHook,
   fontconfig,
@@ -26,6 +27,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
   cargoHash = "sha256-GQUIluFtQbJ/6p9HLV+HIuh36sUQw71bEGK3eR1klVo=";
 
   nativeBuildInputs = [
+    git
     just
     pkg-config
     libcosmicAppHook

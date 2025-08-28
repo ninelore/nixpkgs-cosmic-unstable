@@ -9,6 +9,7 @@
   libpulseaudio,
   geoclue2-with-demo-agent,
   libinput,
+  openssl,
   udev,
 }:
 
@@ -37,6 +38,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
   buildInputs = [
     libinput
     libpulseaudio
+    openssl
     udev
   ];
 

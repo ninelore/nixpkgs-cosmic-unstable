@@ -5,6 +5,7 @@
   rustPlatform,
   libcosmicAppHook,
   cmake,
+  git,
   just,
   libinput,
   linux-pam,
@@ -32,6 +33,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
   nativeBuildInputs = [
     rustPlatform.bindgenHook
     cmake
+    git
     just
     libcosmicAppHook
   ];

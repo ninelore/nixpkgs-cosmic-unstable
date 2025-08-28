@@ -2,7 +2,7 @@
   lib,
   rustPlatform,
   fetchFromGitHub,
-  versionCheckHook,
+  # versionCheckHook,
   cosmic-comp,
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
@@ -19,7 +19,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
   cargoHash = "sha256-OL1LqOAyIFFCGIp3ySdvEXJ1ECp9DgC/8mfAPo/E7k4=";
 
   doInstallCheck = true;
-  nativeInstallCheckInputs = [ versionCheckHook ];
+  # nativeInstallCheckInputs = [ versionCheckHook ];
   versionCheckProgram = "${placeholder "out"}/bin/cosmic-ctl";
 
   meta = {

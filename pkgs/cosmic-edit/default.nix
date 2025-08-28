@@ -16,6 +16,7 @@
   wayland,
   xorg,
   vulkan-loader,
+  glib,
 }:
 
 rustPlatform.buildRustPackage (finalAttrs: {
@@ -51,6 +52,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
     libgbm
     wayland
     vulkan-loader
+    glib
   ];
 
   dontUseJustBuild = true;

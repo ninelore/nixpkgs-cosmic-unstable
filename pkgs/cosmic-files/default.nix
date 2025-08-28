@@ -3,6 +3,7 @@
   stdenv,
   fetchFromGitHub,
   rustPlatform,
+  git,
   just,
   libcosmicAppHook,
   glib,
@@ -23,6 +24,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
   cargoHash = "sha256-TDXo0PsDLIBewAasBK82VsG1O0lPqY6g3dBRFsGzF6A=";
 
   nativeBuildInputs = [
+    git
     just
     libcosmicAppHook
   ];

@@ -4,6 +4,7 @@
   rustPlatform,
   fetchFromGitHub,
   libcosmicAppHook,
+  git,
   pkg-config,
   util-linux,
   libgbm,
@@ -32,6 +33,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
   nativeBuildInputs = [
     libcosmicAppHook
     rustPlatform.bindgenHook
+    git
     pkg-config
     util-linux
   ];
