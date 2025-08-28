@@ -1,8 +1,11 @@
 name: Build and Cache packages
 on:
   workflow_dispatch:
-  # push:
-  #   branches: [main]
+  push:
+    branches: [main]
+    paths:
+      - "**/*.nix"
+      - "flake.lock"
 
 jobs:
   nix-matrix:
