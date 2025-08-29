@@ -30,8 +30,6 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   env.VERGEN_GIT_SHA = finalAttrs.src.rev;
 
-  separateDebugInfo = true;
-
   nativeBuildInputs = [
     libcosmicAppHook
     rustPlatform.bindgenHook

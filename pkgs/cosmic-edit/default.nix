@@ -7,6 +7,7 @@
   cosmic-icons,
   just,
   pkg-config,
+  libcosmicAppHook,
   libglvnd,
   libxkbcommon,
   libinput,
@@ -40,6 +41,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
   '';
 
   nativeBuildInputs = [
+    libcosmicAppHook
     just
     pkg-config
     makeBinaryWrapper

@@ -36,13 +36,14 @@ rustPlatform.buildRustPackage (finalAttrs: {
     pkg-config
     util-linuxMinimal
     libcosmicAppHook
+    rustPlatform.bindgenHook
   ];
 
   buildInputs = [
     dbus
     glib
     libinput
-    libclang
+    # libclang
     pipewire
     pulseaudio
     udev
