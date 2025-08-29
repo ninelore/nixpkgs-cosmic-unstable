@@ -13,10 +13,15 @@ jobs:
       - name: Update packages
         run: |
           set -Eeu
+          skip=('cosmic-comp')
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           nix eval --json .#packageList | nix run nixpkgs#jq -- -r '.[]' | while read i; do
-            nix run nixpkgs#nix-update -- $i --flake --commit --version=branch
+            if [[ "${skip[@]}" =~ $i ]]; then
+              echo Skipped $i
+              continue
+            fi
+            nix run nixpkgs#nix-update -- $i -q --flake --commit --version=branch
           done
           nix flake update --commit-lock-file
       - name: Create Pull Request
