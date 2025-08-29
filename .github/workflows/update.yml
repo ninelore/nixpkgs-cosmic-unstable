@@ -19,7 +19,6 @@ jobs:
             nix run nixpkgs#nix-update -- $i --flake --commit --version=branch
           done
           nix flake update --commit-lock-file
-          git push
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
         with:
