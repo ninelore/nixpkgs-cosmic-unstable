@@ -8,7 +8,7 @@ with import inputs.nixpkgs {
   cosmic-applibrary = callPackage ./cosmic-applibrary { };
   cosmic-bg = callPackage ./cosmic-bg { };
   cosmic-comp = callPackage ./cosmic-comp { };
-  cosmic-clipboard-manager = callPackage ./cosmic-clipboard-manager { };
+  cosmic-ext-applet-clipboard-manager = callPackage ./cosmic-ext-applet-clipboard-manager { };
   cosmic-edit = callPackage ./cosmic-edit { };
   cosmic-ext-calculator = callPackage ./cosmic-ext-calculator { };
   cosmic-ext-ctl = callPackage ./cosmic-ext-ctl { };
