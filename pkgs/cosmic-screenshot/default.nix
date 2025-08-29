@@ -11,7 +11,6 @@ rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cosmic-screenshot";
   version = "epoch-1.0.0-alpha.7-unstable-2025-05-02";
 
-  # nixpkgs-update: no auto update
   src = fetchFromGitHub {
     owner = "pop-os";
     repo = "cosmic-screenshot";

@@ -17,7 +17,6 @@ rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cosmic-greeter";
   version = "epoch-1.0.0-alpha.7-unstable-2025-08-12";
 
-  # nixpkgs-update: no auto update
   src = fetchFromGitHub {
     owner = "pop-os";
     repo = "cosmic-greeter";

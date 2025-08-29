@@ -24,7 +24,6 @@ rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cosmic-edit";
   version = "epoch-1.0.0-alpha.7-unstable-2025-08-24";
 
-  # nixpkgs-update: no auto update
   src = fetchFromGitHub {
     owner = "pop-os";
     repo = "cosmic-edit";

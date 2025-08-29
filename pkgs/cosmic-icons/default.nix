@@ -10,7 +10,6 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "cosmic-icons";
   version = "epoch-1.0.0-alpha.7-unstable-2025-03-21";
 
-  # nixpkgs-update: no auto update
   src = fetchFromGitHub {
     owner = "pop-os";
     repo = "cosmic-icons";
