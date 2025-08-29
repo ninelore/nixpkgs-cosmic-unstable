@@ -48,6 +48,8 @@ rustPlatform.buildRustPackage (finalAttrs: {
     "target/${stdenv.hostPlatform.rust.cargoShortTarget}"
   ];
 
+  passthru.providedSessions = [ "cosmic" ];
+
   env = {
     XDP_COSMIC = "${xdg-desktop-portal-cosmic}/libexec/xdg-desktop-portal-cosmic";
     ORCA = "orca"; # get orca from $PATH
