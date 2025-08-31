@@ -33,4 +33,7 @@ with import inputs.nixpkgs {
   cosmic-wallpapers = callPackage ./cosmic-wallpapers { };
   cosmic-workspaces-epoch = callPackage ./cosmic-workspaces-epoch { };
   xdg-desktop-portal-cosmic = callPackage ./xdg-desktop-portal-cosmic { };
+
+  # Build for cache
+  cosmic-manager = callPackage "${inputs.cosmic-manager}/cosmic-manager" { };
 }
