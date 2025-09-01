@@ -11,13 +11,13 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cosmic-bg";
-  version = "epoch-1.0.0-alpha.7-unstable-2025-08-18";
+  version = "epoch-1.0.0-alpha.7-unstable-2025-09-01";
 
   src = fetchFromGitHub {
     owner = "pop-os";
     repo = "cosmic-bg";
-    rev = "d46d05e159a22a30713f5f49f1a79ec9a2630d96";
-    hash = "sha256-z7PtP5sDj4Vb74eNeEDcXgoRRKcVT17Dlvx9XHX/9+4=";
+    rev = "f5cf3a6dd590493e10bdec2044f872cd6e23d3d4";
+    hash = "sha256-bEeezwpruHi6HBxz5cGfIyyzoRdqjoyh8Obh2w3pPzU=";
   };
 
   postPatch = ''
@@ -26,7 +26,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
       "${cosmic-wallpapers}/share/backgrounds/cosmic/orion_nebula_nasa_heic0601a.jpg"
   '';
 
-  cargoHash = "sha256-iCQjPZH3CN73R6PmFRndLcPZGQfxeaPSYPZgbGofKkM=";
+  cargoHash = "sha256-MbpjHBhYRyLYSq1bwT8yM+RTNKLiAiKuOWN2YqEmm5I=";
 
   nativeBuildInputs = [
     just
