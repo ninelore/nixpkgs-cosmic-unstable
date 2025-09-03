@@ -4,6 +4,7 @@
   sound-theme-freedesktop,
   rustPlatform,
   libcosmicAppHook,
+  pipewire,
   pulseaudio,
   udev,
 }:
@@ -29,6 +30,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
   nativeBuildInputs = [ libcosmicAppHook ];
 
   buildInputs = [
+    pipewire
     pulseaudio
     udev
   ];
