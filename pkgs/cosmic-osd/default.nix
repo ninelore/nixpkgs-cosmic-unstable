@@ -27,7 +27,10 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   cargoHash = "sha256-090ifWvXb2Idd/LBybDTbmKx4QGYa4I0EDRs4yKbI4A=";
 
-  nativeBuildInputs = [ libcosmicAppHook ];
+  nativeBuildInputs = [
+    libcosmicAppHook
+    rustPlatform.bindgenHook
+  ];
 
   buildInputs = [
     pipewire
