@@ -7,6 +7,27 @@ Should hopefully update automatically.
 1. Add this flake as an input to your system flake.
 2. Add the default module to your nixosConfiguration. This will add the overlay as well as the binary cache.
 
+Example:
+
+```nix
+# flake.nix
+{
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    cosmic-unstable.url = "github:ninelore/nixpkgs-cosmic-unstable";
+  };
+  outputs =
+    inputs@{ ... }: {
+    nixosConfigurations.example = nixpkgs.lib.nixosSystem {
+      modules = [
+        ./configuration.nix
+        cosmic-unstable.nixosModules.default
+      ];
+    };
+  };
+}
+```
+
 ## License
 
 This flake is licensed under the [MIT License](LICENSE.md).
