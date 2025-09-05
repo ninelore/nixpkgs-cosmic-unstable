@@ -11,13 +11,13 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cosmic-osd";
-  version = "epoch-1.0.0-alpha.7-unstable-2025-09-03";
+  version = "epoch-1.0.0-alpha.7-unstable-2025-09-04";
 
   src = fetchFromGitHub {
     owner = "pop-os";
     repo = "cosmic-osd";
-    rev = "aa8a7d5a01489bbf56e33f45abcadf1e497d7757";
-    hash = "sha256-UYJck+j8q+cN1aFkETNg/BE+BfJj2bV72Dw2UrCYl5Y=";
+    rev = "a0dc762f0195365b5d4c5b7b744a33a193374390";
+    hash = "sha256-JTMcV16JN+qxt/dY7w+bYAXbYrxkyrvI8btBlLgHYug=";
   };
 
   postPatch = ''
@@ -25,7 +25,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
       --replace-fail '/usr/share/sounds/freedesktop/stereo/audio-volume-change.oga' '${sound-theme-freedesktop}/share/sounds/freedesktop/stereo/audio-volume-change.oga'
   '';
 
-  cargoHash = "sha256-090ifWvXb2Idd/LBybDTbmKx4QGYa4I0EDRs4yKbI4A=";
+  cargoHash = "sha256-qiQ4VV1ML2EpfxEdE/A8b6mhtnr5y1/Dr9BvtFu0zgg=";
 
   nativeBuildInputs = [
     libcosmicAppHook
