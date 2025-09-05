@@ -1,6 +1,8 @@
-# NixOS COSMIC nightly builds
+# NixOS COSMIC unstable builds
 
-Should hopefully update automatically.
+- Nightly automatic updates
+- Built by GitHub Actions for aarch64 and x86_64
+- Binary cached on https://9lore.cachix.org
 
 ## Usage
 
@@ -17,7 +19,7 @@ Example:
     cosmic-unstable.url = "github:ninelore/nixpkgs-cosmic-unstable";
   };
   outputs =
-    inputs@{ ... }: {
+    inputs@{ ... }: {}
     nixosConfigurations.example = nixpkgs.lib.nixosSystem {
       modules = [
         ./configuration.nix
