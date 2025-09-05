@@ -1,7 +1,7 @@
 {
   lib,
   fetchFromGitHub,
-  sound-theme-freedesktop,
+  # sound-theme-freedesktop,
   rustPlatform,
   libcosmicAppHook,
   pipewire,
@@ -20,10 +20,11 @@ rustPlatform.buildRustPackage (finalAttrs: {
     hash = "sha256-JTMcV16JN+qxt/dY7w+bYAXbYrxkyrvI8btBlLgHYug=";
   };
 
-  postPatch = ''
-    substituteInPlace src/components/app.rs \
-      --replace-fail '/usr/share/sounds/freedesktop/stereo/audio-volume-change.oga' '${sound-theme-freedesktop}/share/sounds/freedesktop/stereo/audio-volume-change.oga'
-  '';
+  # NOTE: Broken and possibly obsolete as of https://github.com/pop-os/cosmic-osd/commit/4970139d875f9b28ea72d431e07ca3650a200470
+  # postPatch = ''
+  #   substituteInPlace src/components/app.rs \
+  #     --replace-fail '/usr/share/sounds/freedesktop/stereo/audio-volume-change.oga' '${sound-theme-freedesktop}/share/sounds/freedesktop/stereo/audio-volume-change.oga'
+  # '';
 
   cargoHash = "sha256-qiQ4VV1ML2EpfxEdE/A8b6mhtnr5y1/Dr9BvtFu0zgg=";
 
