@@ -16,6 +16,7 @@ jobs:
           skip=('cosmic-manager')
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          nix flake update --commit-lock-file
           nix eval --json .#packageList | nix run nixpkgs#jq -- -r '.[]' | while read i; do
             if [[ "${skip[@]}" =~ $i ]]; then
               echo Skipped $i
@@ -23,7 +24,6 @@ jobs:
             fi
             nix run nixpkgs#nix-update -- $i -q --flake --commit --version=branch
           done
-          nix flake update --commit-lock-file
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
         with:
