@@ -1,39 +1,34 @@
-{ inputs, system, ... }:
-with import inputs.nixpkgs {
-  inherit system;
-  config.allowUnfree = true;
-};
-{
-  cosmic-applets = callPackage ./cosmic-applets { };
-  cosmic-applibrary = callPackage ./cosmic-applibrary { };
-  cosmic-bg = callPackage ./cosmic-bg { };
-  cosmic-comp = callPackage ./cosmic-comp { };
-  cosmic-ext-applet-clipboard-manager = callPackage ./cosmic-ext-applet-clipboard-manager { };
-  cosmic-edit = callPackage ./cosmic-edit { };
-  cosmic-ext-calculator = callPackage ./cosmic-ext-calculator { };
-  cosmic-ext-ctl = callPackage ./cosmic-ext-ctl { };
-  cosmic-ext-tweaks = callPackage ./cosmic-ext-tweaks { };
-  cosmic-files = callPackage ./cosmic-files { };
-  cosmic-greeter = callPackage ./cosmic-greeter { };
-  cosmic-icons = callPackage ./cosmic-icons { };
-  cosmic-idle = callPackage ./cosmic-idle { };
-  cosmic-launcher = callPackage ./cosmic-launcher { };
-  cosmic-notifications = callPackage ./cosmic-notifications { };
-  cosmic-osd = callPackage ./cosmic-osd { };
-  cosmic-panel = callPackage ./cosmic-panel { };
-  cosmic-player = callPackage ./cosmic-player { };
-  cosmic-protocols = callPackage ./cosmic-protocols { };
-  cosmic-randr = callPackage ./cosmic-randr { };
-  cosmic-screenshot = callPackage ./cosmic-screenshot { };
-  cosmic-session = callPackage ./cosmic-session { };
-  cosmic-settings = callPackage ./cosmic-settings { };
-  cosmic-settings-daemon = callPackage ./cosmic-settings-daemon { };
-  cosmic-store = callPackage ./cosmic-store { };
-  cosmic-term = callPackage ./cosmic-term { };
-  cosmic-wallpapers = callPackage ./cosmic-wallpapers { };
-  cosmic-workspaces-epoch = callPackage ./cosmic-workspaces-epoch { };
-  xdg-desktop-portal-cosmic = callPackage ./xdg-desktop-portal-cosmic { };
+inputs: final: prev: {
+  cosmic-applets = prev.callPackage ./cosmic-applets { };
+  cosmic-applibrary = prev.callPackage ./cosmic-applibrary { };
+  cosmic-bg = prev.callPackage ./cosmic-bg { };
+  cosmic-comp = prev.callPackage ./cosmic-comp { };
+  cosmic-ext-applet-clipboard-manager = prev.callPackage ./cosmic-ext-applet-clipboard-manager { };
+  cosmic-edit = prev.callPackage ./cosmic-edit { };
+  cosmic-ext-calculator = prev.callPackage ./cosmic-ext-calculator { };
+  cosmic-ext-ctl = prev.callPackage ./cosmic-ext-ctl { };
+  cosmic-ext-tweaks = prev.callPackage ./cosmic-ext-tweaks { };
+  cosmic-files = prev.callPackage ./cosmic-files { };
+  cosmic-greeter = prev.callPackage ./cosmic-greeter { };
+  cosmic-icons = prev.callPackage ./cosmic-icons { };
+  cosmic-idle = prev.callPackage ./cosmic-idle { };
+  cosmic-launcher = prev.callPackage ./cosmic-launcher { };
+  cosmic-notifications = prev.callPackage ./cosmic-notifications { };
+  cosmic-osd = prev.callPackage ./cosmic-osd { };
+  cosmic-panel = prev.callPackage ./cosmic-panel { };
+  cosmic-player = prev.callPackage ./cosmic-player { };
+  cosmic-protocols = prev.callPackage ./cosmic-protocols { };
+  cosmic-randr = prev.callPackage ./cosmic-randr { };
+  cosmic-screenshot = prev.callPackage ./cosmic-screenshot { };
+  cosmic-session = prev.callPackage ./cosmic-session { };
+  cosmic-settings = prev.callPackage ./cosmic-settings { };
+  cosmic-settings-daemon = prev.callPackage ./cosmic-settings-daemon { };
+  cosmic-store = prev.callPackage ./cosmic-store { };
+  cosmic-term = prev.callPackage ./cosmic-term { };
+  cosmic-wallpapers = prev.callPackage ./cosmic-wallpapers { };
+  cosmic-workspaces-epoch = prev.callPackage ./cosmic-workspaces-epoch { };
+  xdg-desktop-portal-cosmic = prev.callPackage ./xdg-desktop-portal-cosmic { };
 
   # Build for cache
-  cosmic-manager = callPackage "${inputs.cosmic-manager}/cosmic-manager" { };
+  cosmic-manager = prev.callPackage "${inputs.cosmic-manager}/cosmic-manager" { };
 }

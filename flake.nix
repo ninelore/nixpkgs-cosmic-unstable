@@ -30,16 +30,55 @@
         inputs.nixpkgs.lib.map (x: x.name) self.githubActions.matrix.include
       );
 
-      packages = forSystems (system: import ./pkgs { inherit inputs system; });
+      packages = forSystems (
+        system:
+        let
+          nixpkgs = import inputs.nixpkgs {
+            inherit system;
+            overlays = [ self.overlays.default ];
+          };
+        in
+        {
+          inherit (nixpkgs)
+            cosmic-applets
+            cosmic-applibrary
+            cosmic-bg
+            cosmic-comp
+            cosmic-ext-applet-clipboard-manager
+            cosmic-edit
+            cosmic-ext-calculator
+            cosmic-ext-ctl
+            cosmic-ext-tweaks
+            cosmic-files
+            cosmic-greeter
+            cosmic-icons
+            cosmic-idle
+            cosmic-launcher
+            cosmic-notifications
+            cosmic-osd
+            cosmic-panel
+            cosmic-player
+            cosmic-protocols
+            cosmic-randr
+            cosmic-screenshot
+            cosmic-session
+            cosmic-settings
+            cosmic-settings-daemon
+            cosmic-store
+            cosmic-term
+            cosmic-wallpapers
+            cosmic-workspaces-epoch
+            xdg-desktop-portal-cosmic
+
+            # Build for cache
+            cosmic-manager
+            ;
+        }
+      );
 
       lib = import ./lib;
 
-      overlays.default =
-        final: prev:
-        import ./pkgs {
-          inherit inputs;
-          system = prev.system;
-        };
+      overlays.default = (import ./pkgs/default.nix inputs);
 
       nixosModules.default = {
         nixpkgs.overlays = [
