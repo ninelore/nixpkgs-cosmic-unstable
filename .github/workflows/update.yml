@@ -13,7 +13,12 @@ jobs:
       - name: Update packages
         run: |
           set -Eeu
-          skip=('cosmic-manager')
+          skip=(
+            'cosmic-manager'
+            'cosmic-edit'
+            'cosmic-files'
+            'cosmic-term'
+          )
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           nix flake update --commit-lock-file
