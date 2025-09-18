@@ -16,7 +16,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
     owner = "pop-os";
     repo = "cosmic-files";
     rev = "0c722800d95ab88937a247a272723bbbd3d43fea";
-    hash = "sha256-xMG4S+6tl3O3S65ovWWyyMqthk5qrzIu2Jbsd2dpVQA=";
+    hash = "sha256-MaADFzTum4xMg/h1Ub/JXWxtAZ8L46g1wyRs1XG+dEE=";
     deepClone = true;
   };
 

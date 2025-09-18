@@ -21,7 +21,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
     owner = "pop-os";
     repo = "xdg-desktop-portal-cosmic";
     rev = "a069d57d359c4fe25a0415bdfee6c967e07b5a48";
-    hash = "sha256-uo6ophDW05cOBEoDrZTdueOZNTJj10CecCRdvpzcv4g=";
+    hash = "sha256-ILyaHoA7gdaPwB1BELk4JzwHupFlwGLirDXPBUBumYI=";
     deepClone = true;
   };
 
