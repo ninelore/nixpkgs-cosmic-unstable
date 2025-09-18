@@ -25,16 +25,16 @@ let
 in
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cosmic-settings";
-  version = "epoch-1.0.0-alpha.7-unstable-2025-09-15";
+  version = "epoch-1.0.0-alpha.7-unstable-2025-09-18";
 
   src = fetchFromGitHub {
     owner = "pop-os";
     repo = "cosmic-settings";
-    rev = "bb0fb95692b309709c2a4f14e53f83d5358592fe";
-    hash = "sha256-wr3qwhNpfp7tNSfuzM7+rikCbMiiYQEyfxqh84MDGGI=";
+    rev = "857d5162c9818b37c2dad7ad8a275fc2aca6836c";
+    hash = "sha256-UqO4zcvz7xJ2XM0CROvPjx2aQMMI0Ly2BcKr3WlLZeE=";
   };
 
-  cargoHash = "sha256-7+xXZ3mLfYtEK5Ufan+hoMN+kQsHg3W1hgIlvaN//h4=";
+  cargoHash = "sha256-z9a1WOKZFJu/H4uGjeJOnnV+BiXt69rD8wr2FQA+aEM=";
 
   nativeBuildInputs = [
     cmake
