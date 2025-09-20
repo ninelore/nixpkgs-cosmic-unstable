@@ -4,6 +4,7 @@
   # sound-theme-freedesktop,
   rustPlatform,
   libcosmicAppHook,
+  libinput,
   pipewire,
   pulseaudio,
   udev,
@@ -28,6 +29,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
   ];
 
   buildInputs = [
+    libinput
     pipewire
     pulseaudio
     udev
