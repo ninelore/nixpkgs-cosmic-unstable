@@ -43,19 +43,13 @@ rustPlatform.buildRustPackage (finalAttrs: {
     libcosmicAppHook
     just
     pkg-config
-    makeBinaryWrapper
   ];
   buildInputs = [
-    libxkbcommon
-    xorg.libX11
+    glib
     libinput
     libglvnd
     fontconfig
     freetype
-    libgbm
-    wayland
-    vulkan-loader
-    glib
   ];
 
   dontUseJustBuild = true;
@@ -67,16 +61,6 @@ rustPlatform.buildRustPackage (finalAttrs: {
     "--set"
     "bin-src"
     "target/${stdenv.hostPlatform.rust.cargoShortTarget}/release/cosmic-edit"
-  ];
-
-  # Force linking to libEGL, which is always dlopen()ed, and to
-  # libwayland-client, which is always dlopen()ed except by the
-  # obscure winit backend.
-  RUSTFLAGS = map (a: "-C link-arg=${a}") [
-    "-Wl,--push-state,--no-as-needed"
-    "-lEGL"
-    "-lwayland-client"
-    "-Wl,--pop-state"
   ];
 
   postInstall = ''
