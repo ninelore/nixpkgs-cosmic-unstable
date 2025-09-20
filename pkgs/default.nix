@@ -4,7 +4,9 @@ inputs: final: prev: {
   cosmic-bg = prev.callPackage ./cosmic-bg { };
   cosmic-comp = prev.callPackage ./cosmic-comp { };
   cosmic-ext-applet-clipboard-manager = prev.callPackage ./cosmic-ext-applet-clipboard-manager { };
-  cosmic-ext-applet-external-monitor-brightness = prev.callPackage ./cosmic-ext-applet-external-monitor-brightness { };
+  cosmic-ext-applet-external-monitor-brightness =
+    prev.callPackage ./cosmic-ext-applet-external-monitor-brightness
+      { };
   cosmic-edit = prev.callPackage ./cosmic-edit { };
   cosmic-ext-calculator = prev.callPackage ./cosmic-ext-calculator { };
   cosmic-ext-ctl = prev.callPackage ./cosmic-ext-ctl { };
@@ -13,6 +15,7 @@ inputs: final: prev: {
   cosmic-greeter = prev.callPackage ./cosmic-greeter { };
   cosmic-icons = prev.callPackage ./cosmic-icons { };
   cosmic-idle = prev.callPackage ./cosmic-idle { };
+  cosmic-initial-setup = prev.callPackage ./cosmic-initial-setup { };
   cosmic-launcher = prev.callPackage ./cosmic-launcher { };
   cosmic-notifications = prev.callPackage ./cosmic-notifications { };
   cosmic-osd = prev.callPackage ./cosmic-osd { };

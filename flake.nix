@@ -54,6 +54,7 @@
             cosmic-greeter
             cosmic-icons
             cosmic-idle
+            cosmic-initial-setup
             cosmic-launcher
             cosmic-notifications
             cosmic-osd
