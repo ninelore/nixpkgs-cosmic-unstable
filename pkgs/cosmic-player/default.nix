@@ -16,13 +16,13 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cosmic-player";
-  version = "epoch-1.0.0-beta.1.1-unstable-2025-09-29";
+  version = "epoch-1.0.0-beta.1.1-unstable-2025-10-01";
 
   src = fetchFromGitHub {
     owner = "pop-os";
     repo = "cosmic-player";
-    rev = "65cf8607da99b65bbe3e13859e558cc7af992bfa";
-    hash = "sha256-OU6Y8xgTenuVxTghu5Q2P0ZmQEuOy/LufuLemJ4V9Nk=";
+    rev = "18585737cc36a61270bb07b2aad6a72cd8969ca0";
+    hash = "sha256-D4AV5mp0HVp5xDeYaZazKW9wnuQ0YnBd78INFv/iVrA=";
   };
 
   cargoHash = "sha256-DodFIfthiGFSvXWfPsPjFhNY6G7z3lb6pfc5HtUXhMo=";
