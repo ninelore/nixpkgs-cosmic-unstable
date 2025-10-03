@@ -15,13 +15,13 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "xdg-desktop-portal-cosmic";
-  version = "epoch-1.0.0-beta.1.1-unstable-2025-10-01";
+  version = "epoch-1.0.0-beta.1.1-unstable-2025-10-02";
 
   src = fetchFromGitHub {
     owner = "pop-os";
     repo = "xdg-desktop-portal-cosmic";
-    rev = "de9e0991ba2cf0131ffbaeb286cc82ca879f8834";
-    hash = "sha256-NWmTiY85kvK+0RAoUbAyHxjvJd8V1FfxS/wJv7eHHZY=";
+    rev = "cb1933fb6232c073d60899ca7d950b0a165e2d54";
+    hash = "sha256-Rgmitq5ayq1/D3SwWdtpQ227OX0QA818sh477ItCluk=";
     deepClone = true;
   };
 
