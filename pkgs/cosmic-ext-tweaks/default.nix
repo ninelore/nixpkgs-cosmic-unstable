@@ -13,13 +13,13 @@
 }:
 rustPlatform.buildRustPackage rec {
   pname = "cosmic-ext-tweaks";
-  version = "0.2.0-unstable-2025-10-04";
+  version = "0.2.0-unstable-2025-10-06";
 
   src = fetchFromGitHub {
     owner = "cosmic-utils";
     repo = "tweaks";
-    rev = "aa7303835137b3e919453b4ad335699876166a8e";
-    hash = "sha256-1qdgvgjJGvbfQFbOJGH+DhPL2xZEDedfz69/c078Drg=";
+    rev = "22c17815092c9272a31b2f44c67ce1151f3b1dba";
+    hash = "sha256-XU63dT7BzTUfQ1eKjRP/MilwAtZiNsPYEF7Y283v7DU=";
   };
 
   cargoHash = "sha256-yjif793almqWKLQS+r8BMXqrJqjBRYIvaQV3xsW66Lw=";
