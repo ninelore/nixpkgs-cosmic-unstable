@@ -23,6 +23,10 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   cargoHash = "sha256-cEP4R5AlMLL7mTX6qH7hVLqX83lsQda0lxipQ/FjNkQ=";
 
+  patches = [ ./0001-justfile-drop-export.patch ];
+
+  env.CLIPBOARD_MANAGER_COMMIT = finalAttrs.src.rev;
+
   nativeBuildInputs = [
     just
     libcosmicAppHook

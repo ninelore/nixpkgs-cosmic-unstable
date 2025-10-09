@@ -1,0 +1,21 @@
+From 96941646485653c9128bc49b5a0874080b8780ba Mon Sep 17 00:00:00 2001
+From: Ingo Reitz <9l@9lo.re>
+Date: Thu, 9 Oct 2025 11:50:06 +0200
+Subject: [PATCH] justfile: drop export
+
+---
+ justfile | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/justfile b/justfile
+index cad21d6..45313b8 100644
+--- a/justfile
++++ b/justfile
+@@ -1,4 +1,3 @@
+-export CLIPBOARD_MANAGER_COMMIT := `git rev-parse --short HEAD`
+ rootdir := ''
+ prefix := '/usr'
+ debug := '0'
+-- 
+2.51.0
+
