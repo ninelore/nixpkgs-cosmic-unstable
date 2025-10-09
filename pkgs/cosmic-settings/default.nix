@@ -30,11 +30,11 @@ rustPlatform.buildRustPackage (finalAttrs: {
   src = fetchFromGitHub {
     owner = "pop-os";
     repo = "cosmic-settings";
-    rev = "449411c7e9afccdb7c665b9d8d0bef25558056af";
-    hash = "sha256-CKk2nzx+toAfnHa8sHy5yGdmaUk6vyaPVwQE7l4FgKc=";
+    rev = "948eb79e2580ef026945d90b3ce049d813fdfc9e";
+    hash = "sha256-+yHbx9lOPIIQSdS87TUixCLD0JJcuo5McxFxagdePo0=";
   };
 
-  cargoHash = "sha256-Zo94hk4m84aIS5WLkCbP/q9Kygy2RclgMJidokY5Lvo=";
+  cargoHash = "sha256-VXVCxJROFxVpknrCHzHOJx173lRD4hawuF2nULbV8oQ=";
 
   nativeBuildInputs = [
     cmake
