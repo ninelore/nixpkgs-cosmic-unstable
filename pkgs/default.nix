@@ -3,6 +3,7 @@ inputs: final: prev: {
   cosmic-applibrary = prev.callPackage ./cosmic-applibrary { };
   cosmic-bg = prev.callPackage ./cosmic-bg { };
   cosmic-comp = prev.callPackage ./cosmic-comp { };
+  cosmic-ext-applet-caffeine = prev.callPackage ./cosmic-ext-applet-caffeine { };
   cosmic-ext-applet-clipboard-manager = prev.callPackage ./cosmic-ext-applet-clipboard-manager { };
   cosmic-ext-applet-external-monitor-brightness =
     prev.callPackage ./cosmic-ext-applet-external-monitor-brightness
