@@ -23,6 +23,8 @@ rustPlatform.buildRustPackage rec {
 
   cargoHash = "sha256-Pq1E4O6lZMe+wKJgQKDBmgdsJJsJTyK0FDXU53n+Di4=";
 
+  patches = [ ./0001-justfile-fix-un-install.patch ];
+
   nativeBuildInputs = [
     libcosmicAppHook
     just

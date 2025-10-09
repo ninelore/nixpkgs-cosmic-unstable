@@ -1,0 +1,54 @@
+From d6ef4a186f89dbfba1e0cf10ba8bbaa084347483 Mon Sep 17 00:00:00 2001
+From: Ingo Reitz <9l@9lo.re>
+Date: Thu, 9 Oct 2025 12:09:30 +0200
+Subject: [PATCH] justfile: fix (un)install
+
+---
+ justfile | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
+
+diff --git a/justfile b/justfile
+index 83d1418..7e80cfd 100644
+--- a/justfile
++++ b/justfile
+@@ -15,12 +15,12 @@ bin-dst := base-dir / 'bin' / name
+ flatpak-bin-dst := flatpak-base-dir / 'bin' / name
+ 
+ desktop := appid + '.desktop'
+-desktop-src := 'res' / desktop
++desktop-src := 'res' / 'app.desktop'
+ desktop-dst := clean(rootdir / prefix) / 'share' / 'applications' / desktop
+ flatpak-desktop-dst := clean(rootdir / flatpak-prefix) / 'share' / 'applications' / desktop
+ 
+ metainfo := appid + '.metainfo.xml'
+-metainfo-src := 'res' / metainfo
++metainfo-src := 'res' / 'metainfo.xml'
+ metainfo-dst := clean(rootdir / prefix) / 'share' / 'metainfo' / metainfo
+ flatpak-metainfo-dst := clean(rootdir / flatpak-prefix) / 'share' / 'metainfo' / metainfo
+ 
+@@ -68,18 +68,19 @@ install:
+     install -Dm0755 {{bin-src}} {{bin-dst}}
+     install -Dm0644 {{desktop-src}} {{desktop-dst}}
+     install -Dm0644 {{metainfo-src}} {{metainfo-dst}}
+-    install -Dm0644 "{{icons-src}}/scalable/apps/{{APPID}}.svg" "{{flatpak-icons-dst}}/scalable/apps/{{APPID}}.svg"; \
++    install -Dm0644 "{{icons-src}}/scalable/apps/{{appid}}.svg" "{{icons-dst}}/scalable/apps/{{appid}}.svg"; \
+ 
+ # Installs flatpak files
+ flatpak:
+     install -Dm0755 {{bin-src}} {{flatpak-bin-dst}}
+     install -Dm0644 {{desktop-src}} {{flatpak-desktop-dst}}
+     install -Dm0644 {{metainfo-src}} {{flatpak-metainfo-dst}}
+-    install -Dm0644 "{{icons-src}}/scalable/apps/{{APPID}}.svg" "{{flatpak-icons-dst}}/scalable/apps/{{APPID}}.svg"; \
++    install -Dm0644 "{{icons-src}}/scalable/apps/{{appid}}.svg" "{{flatpak-icons-dst}}/scalable/apps/{{appid}}.svg"; \
+ 
+ # Uninstalls installed files
++# TODO: handle icon removal properly
+ uninstall:
+-    rm {{bin-dst}} {{desktop-dst}} {{icon-dst}}
++    rm {{bin-dst}} {{desktop-dst}}
+ 
+ # Vendor dependencies locally
+ vendor:
+-- 
+2.51.0
+
