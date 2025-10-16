@@ -25,7 +25,7 @@ let
 in
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cosmic-settings";
-  version = "epoch-1.0.0-beta.1.1-unstable-2025-10-14";
+  version = "epoch-1.0.0-beta.2-unstable-2025-10-14";
 
   src = fetchFromGitHub {
     owner = "pop-os";
