@@ -57,10 +57,6 @@ rustPlatform.buildRustPackage (finalAttrs: {
     # [2]: https://github.com/pop-os/cosmic-bg/blob/epoch-1.0.0-alpha.6/data/v1/all#L3
     substituteInPlace src/screenshot.rs src/widget/screenshot.rs \
       --replace-fail '/usr/share/backgrounds/pop/kate-hazen-COSMIC-desktop-wallpaper.png' '${cosmic-wallpapers}/share/backgrounds/cosmic/orion_nebula_nasa_heic0601a.jpg'
-
-    # Also modifies the functionality by replacing 'false' with 'true' to enable the portal to start properly.
-    substituteInPlace data/org.freedesktop.impl.portal.desktop.cosmic.service \
-      --replace-fail 'Exec=/bin/false' 'Exec=${lib.getExe' coreutils "true"}'
   '';
 
   dontCargoInstall = true;
