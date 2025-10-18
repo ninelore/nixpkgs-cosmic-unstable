@@ -50,10 +50,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   passthru.providedSessions = [ "cosmic" ];
 
-  env = {
-    XDP_COSMIC = "${xdg-desktop-portal-cosmic}/libexec/xdg-desktop-portal-cosmic";
-    ORCA = "orca"; # get orca from $PATH
-  };
+  env.ORCA = "orca"; # get orca from $PATH
 
   meta = {
     homepage = "https://github.com/pop-os/cosmic-session";
