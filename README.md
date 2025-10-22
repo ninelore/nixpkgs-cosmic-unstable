@@ -19,11 +19,11 @@ Example:
     cosmic-unstable.url = "github:ninelore/nixpkgs-cosmic-unstable";
   };
   outputs =
-    inputs@{ ... }: {}
+    inputs@{ ... }: {
     nixosConfigurations.example = nixpkgs.lib.nixosSystem {
       modules = [
         ./configuration.nix
-        cosmic-unstable.nixosModules.default
+        inputs.cosmic-unstable.nixosModules.default
       ];
     };
   };
