@@ -9,7 +9,7 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cosmic-applibrary";
-  version = "epoch-1.0.0-beta.3-unstable-2025-10-27";
+  version = "epoch-1.0.0-beta.4-unstable-2025-10-27";
 
   src = fetchFromGitHub {
     owner = "pop-os";
