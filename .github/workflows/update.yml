@@ -24,7 +24,7 @@ jobs:
               echo Skipped $i
               continue
             fi
-            nix run nixpkgs#nix-update -- $i -q --flake --commit --version=branch --option store /tmp/nix-update-$i
+            nix run nixpkgs#nix-update -- $i -q --flake --commit --version=branch #--option store /tmp/nix-update-$i
           done
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
