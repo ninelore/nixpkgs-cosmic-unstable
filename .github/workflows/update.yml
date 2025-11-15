@@ -18,13 +18,15 @@ jobs:
           )
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          nix profile add nixpkgs#jq nixpkgs#nix-update
           nix flake update --commit-lock-file
-          nix eval --json .#packageList | nix run nixpkgs#jq -- -r '.[]' | while read i; do
+          nix eval --json .#packageList | jq -r '.[]' | while read i; do
             if [[ "${skip[@]}" =~ $i ]]; then
               echo Skipped $i
               continue
             fi
-            nix run nixpkgs#nix-update -- $i -q --flake --commit --version=branch #--option store /tmp/nix-update-$i
+            nix-update $i -q --flake --commit --version=branch
+            nix-collect-garbage --quiet
           done
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
