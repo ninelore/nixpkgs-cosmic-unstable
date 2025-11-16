@@ -63,6 +63,7 @@
             cosmic-player
             cosmic-protocols
             cosmic-randr
+            cosmic-reader
             cosmic-screenshot
             cosmic-session
             cosmic-settings

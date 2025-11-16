@@ -24,6 +24,7 @@ inputs: final: prev: {
   cosmic-player = prev.callPackage ./cosmic-player { };
   cosmic-protocols = prev.callPackage ./cosmic-protocols { };
   cosmic-randr = prev.callPackage ./cosmic-randr { };
+  cosmic-reader = prev.callPackage ./cosmic-reader { };
   cosmic-screenshot = prev.callPackage ./cosmic-screenshot { };
   cosmic-session = prev.callPackage ./cosmic-session { };
   cosmic-settings = prev.callPackage ./cosmic-settings { };
