@@ -22,6 +22,8 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   cargoHash = "sha256-jOPJiKPE3UUD/QHmb+6s6l2RVhtUFls3QRGQ6DmEFSE=";
 
+  buildFeatures = [ "nixos" ];
+
   # cargo-auditable fails during the build when compiling the `crabtime::function`
   # procedural macro. It panics because the `--out-dir` flag is not passed to
   # the rustc wrapper.
