@@ -17,7 +17,7 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cosmic-greeter";
-  version = "epoch-1.0.0-beta.6-unstable-2025-11-14";
+  version = "epoch-1.0.0-beta.7-unstable-2025-11-14";
 
   src = fetchFromGitHub {
     owner = "pop-os";
