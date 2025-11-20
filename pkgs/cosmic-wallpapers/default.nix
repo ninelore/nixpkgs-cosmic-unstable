@@ -7,7 +7,7 @@
 
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "cosmic-wallpapers";
-  version = "epoch-1.0.0-beta.6-unstable-2025-04-08";
+  version = "epoch-1.0.0-beta.7-unstable-2025-04-08";
 
   src = fetchFromGitHub {
     owner = "pop-os";
