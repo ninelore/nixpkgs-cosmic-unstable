@@ -4,6 +4,7 @@
   rustPlatform,
   fetchFromGitHub,
   just,
+  killall,
   libcosmicAppHook,
   libinput,
   openssl,
@@ -35,6 +36,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
   ];
 
   buildInputs = [
+    killall
     libinput
     openssl
     udev
@@ -46,6 +48,10 @@ rustPlatform.buildRustPackage (finalAttrs: {
       --replace-fail \
       "autostart-dst := rootdir / 'etc' / 'xdg' / 'autostart' / desktop-entry" \
       "autostart-dst := prefix / 'etc' / 'xdg' / 'autostart' / desktop-entry"
+  '';
+
+  preFixup = ''
+    libcosmicAppWrapperArgs+=(--prefix PATH : ${lib.makeBinPath [ killall ]})
   '';
 
   dontUseJustBuild = true;

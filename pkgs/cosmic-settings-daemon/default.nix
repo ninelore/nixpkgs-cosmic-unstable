@@ -7,7 +7,6 @@
   adw-gtk3,
   pkg-config,
   libpulseaudio,
-  geoclue2-with-demo-agent,
   libinput,
   openssl,
   udev,
@@ -40,8 +39,6 @@ rustPlatform.buildRustPackage (finalAttrs: {
     openssl
     udev
   ];
-
-  env.GEOCLUE_AGENT = "${lib.getLib geoclue2-with-demo-agent}/libexec/geoclue-2.0/demos/agent";
 
   makeFlags = [
     "prefix=$(out)"

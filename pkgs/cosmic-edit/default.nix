@@ -7,7 +7,6 @@
   just,
   pkg-config,
   libcosmicAppHook,
-  libglvnd,
   libinput,
   fontconfig,
   freetype,
@@ -27,8 +26,6 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   cargoHash = "sha256-6b6m6mZTa3Li74JCm6czR0VBc7H5IRTPr7yic3V1FL4=";
 
-  env.VERGEN_GIT_SHA = finalAttrs.src.rev;
-
   postPatch = ''
     substituteInPlace justfile --replace-fail '#!/usr/bin/env' "#!$(command -v env)"
   '';
@@ -41,7 +38,6 @@ rustPlatform.buildRustPackage (finalAttrs: {
   buildInputs = [
     glib
     libinput
-    libglvnd
     fontconfig
     freetype
   ];

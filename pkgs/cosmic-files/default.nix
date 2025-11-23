@@ -16,17 +16,15 @@ rustPlatform.buildRustPackage (finalAttrs: {
     owner = "pop-os";
     repo = "cosmic-files";
     rev = "9455d6f08476395b7e2c455d73e4420b05c9fe4b";
-    hash = "sha256-MIjtQwkMXJWz59v2D1PTvVHjXCMGIENXpQrkhChCXXQ=";
-    deepClone = true;
+    hash = "sha256-qwvFyUDxAtpQU3ZXJ4VRi0SY7y5NrOOYGzh3IQuvxbM=";
   };
 
   cargoHash = "sha256-WPBK7/7l+Z69AFrqnDL6XszUcBHuZdKsNZ31HS+Ol4o=";
 
-  env.VERGEN_GIT_SHA = finalAttrs.src.rev;
-
   nativeBuildInputs = [
     just
     libcosmicAppHook
+    rustPlatform.bindgenHook
   ];
 
   buildInputs = [ glib ];
@@ -62,19 +60,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
   checkPhase = ''
     runHook preCheck
 
-    defaultCargoTestFlags="$cargoTestFlags"
-
-    # Some tests with the `compio` runtime expect io_uring support but that
-    # is disabled in the Nix sandbox and the tests fail because they can't
-    # run in the sandbox. Ideally, the `compio` crate should fallback to a
-    # non-io_uring runtime but for some reason, that doesn't happen.
-    cargoTestFlags="$defaultCargoTestFlags --package cosmic-files -- \
-      --skip operation::tests::copy_dir_to_same_location \
-      --skip operation::tests::copy_file_to_same_location \
-      --skip operation::tests::copy_file_with_diff_name_to_diff_dir \
-      --skip operation::tests::copy_file_with_extension_to_same_loc \
-      --skip operation::tests::copy_to_diff_dir_doesnt_dupe_files \
-      --skip operation::tests::copying_file_multiple_times_to_same_location"
+    cargoTestFlags="$defaultCargoTestFlags --package cosmic-files"
     runHook cargoCheckHook
 
     cargoTestFlags="$defaultCargoTestFlags --package cosmic-files-applet"

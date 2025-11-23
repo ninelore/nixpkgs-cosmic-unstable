@@ -33,7 +33,6 @@ rustPlatform.buildRustPackage (finalAttrs: {
   cargoBuildFlags = [ "--all" ];
 
   nativeBuildInputs = [
-    cosmic-randr
     rustPlatform.bindgenHook
     cmake
     just
@@ -41,9 +40,11 @@ rustPlatform.buildRustPackage (finalAttrs: {
   ];
 
   buildInputs = [
+    cosmic-randr
     libinput
     linux-pam
     udev
+    orca
   ];
 
   dontUseJustBuild = true;

@@ -10,7 +10,6 @@
   pipewire,
   gst_all_1,
   cosmic-wallpapers,
-  coreutils,
 }:
 
 rustPlatform.buildRustPackage (finalAttrs: {
@@ -22,12 +21,9 @@ rustPlatform.buildRustPackage (finalAttrs: {
     repo = "xdg-desktop-portal-cosmic";
     rev = "31b7a1aa36f1a11c7bd1a14a6da3d87b9edca7d1";
     hash = "sha256-Ng0GMNpjp/dpH2Ft1oLK8h3U/7dXRU0rWKYxCbzIMgs=";
-    deepClone = true;
   };
 
   cargoHash = "sha256-0PsiB/xvePSi5o1eRUgCq02UAGzuBQEe8+LlFJi5814=";
-
-  env.VERGEN_GIT_SHA = finalAttrs.src.rev;
 
   nativeBuildInputs = [
     libcosmicAppHook

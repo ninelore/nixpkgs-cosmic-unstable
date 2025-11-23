@@ -24,8 +24,6 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   cargoHash = "sha256-gLPNX9CEortxDPM9+QYiHlCTPINnoYL1P90HWVPcezY=";
 
-  env.VERGEN_GIT_SHA = finalAttrs.src.rev;
-
   nativeBuildInputs = [
     just
     pkg-config
