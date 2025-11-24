@@ -19,6 +19,6 @@ jobs:
         with:
           extra_nix_config: |
             extra-platforms = aarch64-linux
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Run nix flake check
         run: nix flake check --all-systems
