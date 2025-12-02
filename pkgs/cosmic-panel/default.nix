@@ -9,13 +9,13 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cosmic-panel";
-  version = "epoch-1.0.0-beta.8-unstable-2025-11-26";
+  version = "epoch-1.0.0-beta.8-unstable-2025-12-01";
 
   src = fetchFromGitHub {
     owner = "pop-os";
     repo = "cosmic-panel";
-    rev = "577628faad472d647606b4055f133b38cd124347";
-    hash = "sha256-HlMaVIz0cbubb59NKKoxxe0IDM+t47em8qrm/MdGG08=";
+    rev = "502e8192432eec8cfbbb096d62d852a2a8255415";
+    hash = "sha256-xLA3G0fxV4PcsQjvYMxsMKyT+sSk+gLfS5k3L4Ol0jY=";
   };
 
   cargoHash = "sha256-ZkjXZrcA4qKHSjEOxj7+j10PxJw/du8B2Mee2fxPJxs=";
