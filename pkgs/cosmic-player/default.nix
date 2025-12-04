@@ -16,7 +16,7 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cosmic-player";
-  version = "epoch-1.0.0-beta.8-unstable-2025-11-25";
+  version = "epoch-1.0.0-beta.9-unstable-2025-11-25";
 
   src = fetchFromGitHub {
     owner = "pop-os";
