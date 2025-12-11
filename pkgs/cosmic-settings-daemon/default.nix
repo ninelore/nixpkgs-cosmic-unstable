@@ -14,7 +14,7 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cosmic-settings-daemon";
-  version = "epoch-1.0.0-beta.9-unstable-2025-12-08";
+  version = "epoch-1.0.0-unstable-2025-12-08";
 
   src = fetchFromGitHub {
     owner = "pop-os";
