@@ -10,13 +10,13 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cosmic-files";
-  version = "epoch-1.0.0-unstable-2025-12-10";
+  version = "epoch-1.0.0-unstable-2025-12-11";
 
   src = fetchFromGitHub {
     owner = "pop-os";
     repo = "cosmic-files";
-    rev = "e65529dcfcc9f85a6c8c6f8066d972ffd7e409f7";
-    hash = "sha256-LZ2vO9e5h/jnFa3iAoXSBvp+fe4SBogEUYbuQWir9nM=";
+    rev = "a760a9e8d61f037dd7a78ce7d21e1bb29ef91e8a";
+    hash = "sha256-cEqDb8De4t4nDnqNGPggJJgt6ILF1qa/Mmvd/2ThxvA=";
   };
 
   cargoHash = "sha256-Dz8jKqfm/VgvCmEpNXice+M7mwd5Q2XyCl5vl7p6nWI=";
