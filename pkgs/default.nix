@@ -5,7 +5,6 @@ inputs: final: prev: {
   cosmic-comp = prev.callPackage ./cosmic-comp { };
   cosmic-ext-applet-clipboard-manager = prev.callPackage ./cosmic-ext-applet-clipboard-manager { };
   cosmic-edit = prev.callPackage ./cosmic-edit { };
-  cosmic-ext-calculator = prev.callPackage ./cosmic-ext-calculator { };
   cosmic-ext-ctl = prev.callPackage ./cosmic-ext-ctl { };
   cosmic-ext-tweaks = prev.callPackage ./cosmic-ext-tweaks { };
   cosmic-files = prev.callPackage ./cosmic-files { };
