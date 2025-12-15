@@ -45,7 +45,6 @@
             cosmic-bg
             cosmic-comp
             cosmic-ext-applet-clipboard-manager
-            cosmic-ext-applet-external-monitor-brightness
             cosmic-edit
             cosmic-ext-calculator
             cosmic-ext-ctl
