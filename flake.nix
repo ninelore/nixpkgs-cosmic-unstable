@@ -46,7 +46,6 @@
             cosmic-comp
             cosmic-ext-applet-clipboard-manager
             cosmic-edit
-            cosmic-ext-ctl
             cosmic-ext-tweaks
             cosmic-files
             cosmic-greeter
