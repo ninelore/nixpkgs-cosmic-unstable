@@ -29,7 +29,7 @@ jobs:
             nix-collect-garbage --quiet
           done
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           branch: ci/update
           delete-branch: true
