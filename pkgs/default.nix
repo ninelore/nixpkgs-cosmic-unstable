@@ -28,7 +28,4 @@ inputs: final: prev: {
   cosmic-wallpapers = prev.callPackage ./cosmic-wallpapers { };
   cosmic-workspaces-epoch = prev.callPackage ./cosmic-workspaces-epoch { };
   xdg-desktop-portal-cosmic = prev.callPackage ./xdg-desktop-portal-cosmic { };
-
-  # Build for cache
-  cosmic-manager = prev.callPackage "${inputs.cosmic-manager}/cosmic-manager" { };
 }

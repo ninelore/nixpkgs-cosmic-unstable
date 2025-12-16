@@ -3,10 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    cosmic-manager = {
-      url = "github:HeitorAugustoLN/cosmic-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -69,9 +65,6 @@
             cosmic-wallpapers
             cosmic-workspaces-epoch
             xdg-desktop-portal-cosmic
-
-            # Build for cache
-            cosmic-manager
             ;
         }
       );
