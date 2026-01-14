@@ -35,4 +35,4 @@ jobs:
         with:
           name: 9lore
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
-      - run: nix build -L '.#${{ matrix.attr }}'
+      - run: nix build -L '.#${{ matrix.attr }}' --print-out-paths | cachix push 9lore
