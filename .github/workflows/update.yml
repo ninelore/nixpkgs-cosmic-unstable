@@ -26,7 +26,6 @@ jobs:
               continue
             fi
             nix-update $i -q --flake --commit --version=branch
-            nix-collect-garbage --quiet
           done
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v8
