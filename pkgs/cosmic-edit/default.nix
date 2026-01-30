@@ -15,16 +15,16 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cosmic-edit";
-  version = "epoch-1.0.4-unstable-2026-01-27";
+  version = "epoch-1.0.4-unstable-2026-01-29";
 
   src = fetchFromGitHub {
     owner = "pop-os";
     repo = "cosmic-edit";
-    rev = "6dbc5d5ef7ea26adb250fcd2b268bb727f29af36";
-    hash = "sha256-BWo75MnhV147Pgfi3iG8wEzQI+OcBwDrza04+M+I6Cs=";
+    rev = "7eef3a064c44617b84c220a8b65d9fe81abceb5b";
+    hash = "sha256-/SSghFrUu9hteJhCJ5ZYNyhFV9gIEab+tzs1+2I21YM=";
   };
 
-  cargoHash = "sha256-UkNkGZtE8JipLe5Dw9ElVXVWV/07CXVC61T4nGY2K1Q=";
+  cargoHash = "sha256-54qTIepsRB7FqmPb4qOb98cn8WmGNVJ9c19AZhJlRGo=";
 
   postPatch = ''
     substituteInPlace justfile --replace-fail '#!/usr/bin/env' "#!$(command -v env)"
