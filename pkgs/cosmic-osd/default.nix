@@ -12,7 +12,7 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cosmic-osd";
-  version = "epoch-1.0.4-unstable-2026-01-31";
+  version = "epoch-1.0.5-unstable-2026-01-31";
 
   src = fetchFromGitHub {
     owner = "pop-os";
