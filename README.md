@@ -4,7 +4,7 @@
 - Built by GitHub Actions for aarch64 and x86_64
 - Binary cached on https://9lore.cachix.org
 
-## Importtant notice!
+## Important notice!
 
 I am currently not using COSMIC as a daily driver. That means i will not notice problems until pointed out!
 
