@@ -6,7 +6,7 @@
 
 ## Important notice!
 
-I am currently not using COSMIC as a daily driver. That means i will not notice problems until pointed out!
+I am currently not using COSMIC as a daily driver. While I will get notified on build failures, I wont notice runtime problems until pointed out!
 
 Please do not hesitate to open an Issue, create a Pull Request or contact me directly via email or Matrix.
 
