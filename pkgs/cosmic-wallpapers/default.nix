@@ -6,15 +6,15 @@
 
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "cosmic-wallpapers";
-  version = "epoch-1.0.6-unstable-2025-04-08";
+  version = "epoch-1.0.6-unstable-2026-02-13";
 
   src = fetchFromGitHub {
     owner = "pop-os";
     repo = "cosmic-wallpapers";
-    rev = "189c2c63d31da84ebb161acfd21a503f98a1b4c7";
+    rev = "3c59953e7ee5792efecdb232cb4c7211e7785f52";
     forceFetchGit = true;
     fetchLFS = true;
-    hash = "sha256-XtNmV6fxKFlirXQvxxgAYSQveQs8RCTfcFd8SVdEXtE=";
+    hash = "sha256-m2cYppfitpBDKK8CC9i/lUrC9rfSYTuqUSZSyIKKGyg=";
   };
 
   makeFlags = [ "prefix=${placeholder "out"}" ];
