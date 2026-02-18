@@ -12,13 +12,13 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cosmic-osd";
-  version = "epoch-1.0.6-unstable-2026-02-13";
+  version = "epoch-1.0.7-unstable-2026-02-17";
 
   src = fetchFromGitHub {
     owner = "pop-os";
     repo = "cosmic-osd";
-    rev = "50cac887ccb46bcb7d3c965e586072f5ccafe252";
-    hash = "sha256-TvXARHQwVxr1J4clInsSCZJS4GwN20XOKwnMC5mfKp8=";
+    rev = "08789c8bdd002d46bb43dc5e2d62c77458af7f01";
+    hash = "sha256-HhE8/N+tD12MLWQwqsoQSQFtFMj2LZkUTPkOijmEBaM=";
   };
 
   cargoHash = "sha256-DNQvmE/2swrDybjcQfCAjMRkAttjl+ibbLG0HSlcZwU=";
