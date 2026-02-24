@@ -13,13 +13,13 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cosmic-store";
-  version = "epoch-1.0.7-unstable-2026-02-18";
+  version = "epoch-1.0.7-unstable-2026-02-23";
 
   src = fetchFromGitHub {
     owner = "pop-os";
     repo = "cosmic-store";
-    rev = "8f1609f7c17bb63285022e62e5bbdd37463374c4";
-    hash = "sha256-O6QVCPiB7rzCdW856qF98NbPY9Mz8TB/iQInyGBgUZE=";
+    rev = "5d623f1803a65b564c4b15469d74276d32f32e2d";
+    hash = "sha256-kIGn8V0jMJFSRNCZaTiHs9cH2Z+9/hOkCam1X80og4I=";
   };
 
   cargoHash = "sha256-rrIIQ5bx4HMrxoUDH63qFJN7J+eyohSSewFZB5xMNjs=";
