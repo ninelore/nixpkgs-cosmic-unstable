@@ -14,12 +14,12 @@
       ];
     in
     {
-      formatter = forSystems (system: inputs.nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
+      formatter = forSystems (system: inputs.nixpkgs.legacyPackages.${system}.nixfmt-tree);
 
       githubActions = self.lib.mkGithubMatrix {
         sourceAttrSet = self.packages;
         attrPrefix = "packages";
-        lib = inputs.nixpkgs.lib;
+        inherit (inputs.nixpkgs) lib;
       };
 
       packageList = inputs.nixpkgs.lib.uniqueStrings (
