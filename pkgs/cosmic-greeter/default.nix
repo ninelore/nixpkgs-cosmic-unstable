@@ -17,16 +17,16 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cosmic-greeter";
-  version = "epoch-1.0.9-unstable-2026-04-06";
+  version = "epoch-1.0.10-unstable-2026-04-14";
 
   src = fetchFromGitHub {
     owner = "pop-os";
     repo = "cosmic-greeter";
-    rev = "d1a69fe1e8c1a0bd6bafc81046e9aa1dc07ed3d9";
-    hash = "sha256-wLTvxXn5g1JnEJ8V/fTC4o/eOPNBThAfIOyhbdpv2EI=";
+    rev = "619910c5cc5bb31479230744e1814c71a1a1aeb3";
+    hash = "sha256-59t0jKXspmhwnTYPa96tNkYrOuCFZ80g/VJsyrZ0s10=";
   };
 
-  cargoHash = "sha256-Cc/q8Z6LiuvhTyEdz+biuSi351h/RReVZpYHCD8HFrQ=";
+  cargoHash = "sha256-MZmbwmc1DPCZ9g4OM9gy0IuXgy/zxreujEYY3Ji5Ad8=";
 
   env.VERGEN_GIT_SHA = finalAttrs.src.rev;
 
