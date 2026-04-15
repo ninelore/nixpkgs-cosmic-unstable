@@ -10,7 +10,7 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cosmic-session";
-  version = "epoch-1.0.9-unstable-2026-04-13";
+  version = "epoch-1.0.10-unstable-2026-04-13";
 
   src = fetchFromGitHub {
     owner = "pop-os";
