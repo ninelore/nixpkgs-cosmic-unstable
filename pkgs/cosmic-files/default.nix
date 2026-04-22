@@ -10,7 +10,7 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cosmic-files";
-  version = "epoch-1.0.10-unstable-2026-04-17";
+  version = "epoch-1.0.11-unstable-2026-04-17";
 
   src = fetchFromGitHub {
     owner = "pop-os";
