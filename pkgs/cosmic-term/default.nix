@@ -18,11 +18,11 @@ rustPlatform.buildRustPackage (finalAttrs: {
   src = fetchFromGitHub {
     owner = "pop-os";
     repo = "cosmic-term";
-    rev = "91fd140ae371498bd2cd3fa86e5a9acd02a02f16";
-    hash = "sha256-Q5SFV+avNMX0/n5fOKpZIZmBCatv/dNzTLFLBMQfnJ8=";
+    rev = "3d8ca65b75c2971734a2e8704c459af88bd698c1";
+    hash = "sha256-psgCOkfdNJwrufuR6siETFriQK+UvpWcVofBCz7DMZU=";
   };
 
-  cargoHash = "sha256-dDvUa+NEc5DL8WNDcd5rv8bEdMUvsZn3eTY52mAmwa8=";
+  cargoHash = "sha256-cSh46oWBwW3ZShSqntPb6QRVu6JceAQXFUf2LHfgIEs=";
 
   nativeBuildInputs = [
     just
