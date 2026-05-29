@@ -10,16 +10,16 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cosmic-files";
-  version = "epoch-1.0.14-unstable-2026-05-26";
+  version = "epoch-1.0.14-unstable-2026-05-28";
 
   src = fetchFromGitHub {
     owner = "pop-os";
     repo = "cosmic-files";
-    rev = "18eb41930a5ec7844387e48fe4fd111335f5d36b";
-    hash = "sha256-1mFA/h90XKnMKHy/B8NJ+3ikqT5CZfgyNv2ovgjaQ4U=";
+    rev = "bf01bb31a318dcb7bb4eb59c86095259ae676f9d";
+    hash = "sha256-rVpua2MdUkRtMvAqWXXHwu+BrXAf6nj2ky8egrDVqH4=";
   };
 
-  cargoHash = "sha256-vpJVq1M1k68a4IAi2a/qXAUkN/GUcjZYjYGx19w4qLE=";
+  cargoHash = "sha256-YrSy9d+iUaQttEVn6mUfPmiV4+riiBcrBTkcVVRPAao=";
 
   nativeBuildInputs = [
     just
