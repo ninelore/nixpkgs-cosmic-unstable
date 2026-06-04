@@ -14,7 +14,7 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cosmic-idle";
-  version = "epoch-1.0.14-unstable-2026-02-13";
+  version = "epoch-1.0.15-unstable-2026-02-13";
 
   src = fetchFromGitHub {
     owner = "pop-os";
@@ -23,7 +23,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
     hash = "sha256-0tcrOfVT5b57ev3b5F2U78F2QPGFwp94bqFVNyKH0Yk=";
   };
 
-  cargoHash = "sha256-aftifakucMAgu/McDN/KKXP5yU5fMNYOD4kC9u7rwXw=";
+  cargoHash = "sha256-MI52HOBKpmbreOSrnWAJ45IZtbxNUWL69iocjRbGDa8=";
 
   nativeBuildInputs = [
     just
