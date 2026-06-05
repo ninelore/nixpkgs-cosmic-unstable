@@ -1,19 +1,8 @@
 {
-  lib,
+  cosmic-settings-daemon,
   fetchFromGitHub,
-  stdenv,
-  rustPlatform,
-  pop-gtk-theme,
-  adw-gtk3,
-  pkg-config,
-  libpulseaudio,
-  libinput,
-  openssl,
-  udev,
 }:
-
-rustPlatform.buildRustPackage (finalAttrs: {
-  pname = "cosmic-settings-daemon";
+cosmic-settings-daemon.overrideAttrs (finalAttrs: {
   version = "epoch-1.0.15-unstable-2026-05-13";
 
   src = fetchFromGitHub {
@@ -23,35 +12,5 @@ rustPlatform.buildRustPackage (finalAttrs: {
     hash = "sha256-A+nOAadFWU+KRW54dP2WW6P6fabIs4z1AqC37LSZjUI=";
   };
 
-  postPatch = ''
-    substituteInPlace src/battery.rs \
-      --replace-fail '/usr/share/sounds/Pop/' '${pop-gtk-theme}/share/sounds/Pop/'
-    substituteInPlace src/theme.rs \
-      --replace-fail '/usr/share/themes/adw-gtk3' '${adw-gtk3}/share/themes/adw-gtk3'
-  '';
-
   cargoHash = "sha256-bz+JasI3WE30sKKgjofVO/42Ml4YY9Dw3JxnZmZVQk4=";
-
-  nativeBuildInputs = [ pkg-config ];
-  buildInputs = [
-    libinput
-    libpulseaudio
-    openssl
-    udev
-  ];
-
-  makeFlags = [
-    "prefix=$(out)"
-    "CARGO_TARGET_DIR=target/${stdenv.hostPlatform.rust.cargoShortTarget}"
-  ];
-
-  dontCargoInstall = true;
-
-  meta = with lib; {
-    homepage = "https://github.com/pop-os/cosmic-settings-daemon";
-    description = "Settings Daemon for the COSMIC Desktop Environment";
-    mainProgram = "cosmic-settings-daemon";
-    license = licenses.gpl3Only;
-    platforms = platforms.linux;
-  };
 })
