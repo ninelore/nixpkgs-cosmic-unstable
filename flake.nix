@@ -1,9 +1,7 @@
 {
   description = "COSMIC Desktop Environment - unstable git packages";
 
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-  };
+  inputs.nixpkgs.url = "github:nixos/nixpkgs/master";
 
   outputs =
     inputs@{ self, ... }:
@@ -11,6 +9,37 @@
       forSystems = inputs.nixpkgs.lib.genAttrs [
         "x86_64-linux"
         "aarch64-linux"
+      ];
+      pkgList = [
+        "cosmic-applets"
+        "cosmic-applibrary"
+        "cosmic-bg"
+        "cosmic-comp"
+        "cosmic-ext-applet-clipboard-manager"
+        "cosmic-edit"
+        "cosmic-ext-tweaks"
+        "cosmic-files"
+        "cosmic-greeter"
+        "cosmic-icons"
+        "cosmic-idle"
+        "cosmic-initial-setup"
+        "cosmic-launcher"
+        "cosmic-notifications"
+        "cosmic-osd"
+        "cosmic-panel"
+        "cosmic-player"
+        "cosmic-protocols"
+        "cosmic-randr"
+        "cosmic-reader"
+        "cosmic-screenshot"
+        "cosmic-session"
+        "cosmic-settings"
+        "cosmic-settings-daemon"
+        "cosmic-store"
+        "cosmic-term"
+        "cosmic-wallpapers"
+        "cosmic-workspaces-epoch"
+        "xdg-desktop-portal-cosmic"
       ];
     in
     {
@@ -28,50 +57,24 @@
 
       packages = forSystems (
         system:
-        let
-          nixpkgs = import inputs.nixpkgs {
-            inherit system;
-            overlays = [ self.overlays.default ];
-          };
-        in
-        {
-          inherit (nixpkgs)
-            cosmic-applets
-            cosmic-applibrary
-            cosmic-bg
-            cosmic-comp
-            cosmic-ext-applet-clipboard-manager
-            cosmic-edit
-            cosmic-ext-tweaks
-            cosmic-files
-            cosmic-greeter
-            cosmic-icons
-            cosmic-idle
-            cosmic-initial-setup
-            cosmic-launcher
-            cosmic-notifications
-            cosmic-osd
-            cosmic-panel
-            cosmic-player
-            cosmic-protocols
-            cosmic-randr
-            cosmic-reader
-            cosmic-screenshot
-            cosmic-session
-            cosmic-settings
-            cosmic-settings-daemon
-            cosmic-store
-            cosmic-term
-            cosmic-wallpapers
-            cosmic-workspaces-epoch
-            xdg-desktop-portal-cosmic
-            ;
-        }
+        builtins.listToAttrs (
+          map (pkg: {
+            name = pkg;
+            value = (import inputs.nixpkgs { inherit system; }).callPackage ./pkgs/${pkg} { };
+          }) pkgList
+        )
       );
 
       lib = import ./lib;
 
-      overlays.default = (import ./pkgs/default.nix inputs);
+      overlays.default =
+        final: prev:
+        builtins.listToAttrs (
+          map (pkg: {
+            name = pkg;
+            value = prev.callPackage ./pkgs/${pkg} { };
+          }) pkgList
+        );
 
       nixosModules =
         let

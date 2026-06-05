@@ -1,17 +1,8 @@
 {
-  lib,
+  cosmic-osd,
   fetchFromGitHub,
-  # sound-theme-freedesktop,
-  rustPlatform,
-  libcosmicAppHook,
-  libinput,
-  pipewire,
-  pulseaudio,
-  udev,
 }:
-
-rustPlatform.buildRustPackage (finalAttrs: {
-  pname = "cosmic-osd";
+cosmic-osd.overrideAttrs (finalAttrs: {
   version = "epoch-1.0.15-unstable-2026-05-29";
 
   src = fetchFromGitHub {
@@ -22,26 +13,4 @@ rustPlatform.buildRustPackage (finalAttrs: {
   };
 
   cargoHash = "sha256-BngWy8fSfmQYSLV+/3jBvDdI0lpTwqGUiwwHvDlqySw=";
-
-  nativeBuildInputs = [
-    libcosmicAppHook
-    rustPlatform.bindgenHook
-  ];
-
-  buildInputs = [
-    libinput
-    pipewire
-    pulseaudio
-    udev
-  ];
-
-  env.POLKIT_AGENT_HELPER_1 = "/run/wrappers/bin/polkit-agent-helper-1";
-
-  meta = {
-    homepage = "https://github.com/pop-os/cosmic-osd";
-    description = "OSD for the COSMIC Desktop Environment";
-    mainProgram = "cosmic-osd";
-    license = lib.licenses.gpl3Only;
-    platforms = lib.platforms.linux;
-  };
 })
