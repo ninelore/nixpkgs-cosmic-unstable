@@ -1,17 +1,8 @@
 {
-  lib,
-  stdenv,
-  rustPlatform,
+  cosmic-term,
   fetchFromGitHub,
-  pkg-config,
-  just,
-  libcosmicAppHook,
-  fontconfig,
-  freetype,
-  libinput,
 }:
-
-rustPlatform.buildRustPackage (finalAttrs: {
+cosmic-term.overrideAttrs (finalAttrs: {
   pname = "cosmic-term";
   version = "epoch-1.2.0-unstable-2026-07-09";
 
@@ -22,37 +13,5 @@ rustPlatform.buildRustPackage (finalAttrs: {
     hash = "sha256-kWZEDXjN0C8bz8a2dRxvERwYnsn6epIHC4tY8eRgFSY=";
   };
 
-  cargoHash = "sha256-GKYa5TAp3ftAVLvFvqdrOCqJqFltmahAuiIBJYy90zs=";
-
-  nativeBuildInputs = [
-    just
-    pkg-config
-    libcosmicAppHook
-  ];
-
-  buildInputs = [
-    fontconfig
-    freetype
-    libinput
-  ];
-
-  dontUseJustBuild = true;
-  dontUseJustCheck = true;
-
-  justFlags = [
-    "--set"
-    "prefix"
-    (placeholder "out")
-    "--set"
-    "cargo-target-dir"
-    "target/${stdenv.hostPlatform.rust.cargoShortTarget}"
-  ];
-
-  meta = {
-    homepage = "https://github.com/pop-os/cosmic-term";
-    description = "Terminal for the COSMIC Desktop Environment";
-    license = lib.licenses.gpl3Only;
-    platforms = lib.platforms.linux;
-    mainProgram = "cosmic-term";
-  };
+  cargoHash = "sha256-uXtAuIyzjx6t11ozZ28WHqfqQfJY4VchHC9POXul8Hk=";
 })
