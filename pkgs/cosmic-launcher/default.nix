@@ -9,13 +9,13 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cosmic-launcher";
-  version = "epoch-1.0.15-unstable-2026-06-02";
+  version = "epoch-1.0.15-unstable-2026-06-04";
 
   src = fetchFromGitHub {
     owner = "pop-os";
     repo = "cosmic-launcher";
-    rev = "0adec45a1ba7adf4a996c193ee22f5260fcbbea2";
-    hash = "sha256-QiwQ4O+6r8kt/r80gFPzwWx2Mpq36h/JuhDbqiqQlCE=";
+    rev = "6dc22e71f55b4e6dede717f2c27fb60ce33e7e0c";
+    hash = "sha256-YTZIQDWPmP7zcoV4/eVROTzCQEjkfqi7ewyzs4cAbj4=";
   };
 
   cargoHash = "sha256-WnZAPQR8hGGNC5S7hPmcGSMs9HrOw4/wqJR151eIgHY=";
