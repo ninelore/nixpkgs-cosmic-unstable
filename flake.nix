@@ -1,9 +1,7 @@
 {
   description = "COSMIC Desktop Environment - unstable git packages";
 
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-  };
+  inputs.nixpkgs.url = "github:nixos/nixpkgs/master";
 
   outputs =
     inputs@{ self, ... }:

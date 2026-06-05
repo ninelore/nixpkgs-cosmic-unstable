@@ -1,18 +1,9 @@
 {
-  lib,
-  stdenv,
+  cosmic-store,
   fetchFromGitHub,
-  rustPlatform,
-  libcosmicAppHook,
-  pkg-config,
-  just,
-  glib,
-  flatpak,
-  openssl,
 }:
 
-rustPlatform.buildRustPackage (finalAttrs: {
-  pname = "cosmic-store";
+cosmic-store.overrideAttrs (finalAttrs: {
   version = "epoch-1.0.15-unstable-2026-06-02";
 
   src = fetchFromGitHub {
@@ -23,35 +14,4 @@ rustPlatform.buildRustPackage (finalAttrs: {
   };
 
   cargoHash = "sha256-fHiOTNenEyjdTq6whRbnPI8D7KerkiXWzOYsXZSVHEw=";
-
-  nativeBuildInputs = [
-    just
-    pkg-config
-    libcosmicAppHook
-  ];
-
-  buildInputs = [
-    glib
-    flatpak
-    openssl
-  ];
-
-  dontUseJustBuild = true;
-  dontUseJustCheck = true;
-
-  justFlags = [
-    "--set"
-    "prefix"
-    (placeholder "out")
-    "--set"
-    "cargo-target-dir"
-    "target/${stdenv.hostPlatform.rust.cargoShortTarget}"
-  ];
-
-  meta = {
-    homepage = "https://github.com/pop-os/cosmic-store";
-    description = "App Store for the COSMIC Desktop Environment";
-    license = lib.licenses.gpl3Only;
-    platforms = lib.platforms.linux;
-  };
 })
