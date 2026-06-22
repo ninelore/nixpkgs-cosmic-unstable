@@ -1,16 +1,9 @@
 {
-  lib,
-  stdenv,
+  cosmic-randr,
   fetchFromGitHub,
-  rustPlatform,
-  just,
-  pkg-config,
-  wayland,
 }:
-
-rustPlatform.buildRustPackage (finalAttrs: {
-  pname = "cosmic-randr";
-  version = "epoch-1.0.16-unstable-2026-02-13";
+cosmic-randr.overrideAttrs (finalAttrs: {
+  version = "epoch-1.0.15-unstable-2026-02-13";
 
   src = fetchFromGitHub {
     owner = "pop-os";
@@ -20,31 +13,4 @@ rustPlatform.buildRustPackage (finalAttrs: {
   };
 
   cargoHash = "sha256-QWSPj7bxxWh5/KeNEtUsfDKg+JMONLjomrMcn57j6fw=";
-
-  nativeBuildInputs = [
-    just
-    pkg-config
-  ];
-
-  buildInputs = [ wayland ];
-
-  dontUseJustBuild = true;
-  dontUseJustCheck = true;
-
-  justFlags = [
-    "--set"
-    "prefix"
-    (placeholder "out")
-    "--set"
-    "cargo-target-dir"
-    "target/${stdenv.hostPlatform.rust.cargoShortTarget}"
-  ];
-
-  meta = {
-    homepage = "https://github.com/pop-os/cosmic-randr";
-    description = "Library and utility for displaying and configuring Wayland outputs";
-    license = lib.licenses.mpl20;
-    platforms = lib.platforms.linux;
-    mainProgram = "cosmic-randr";
-  };
 })

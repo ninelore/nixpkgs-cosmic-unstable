@@ -1,14 +1,9 @@
 {
-  lib,
-  stdenv,
+  cosmic-notifications,
   fetchFromGitHub,
-  rustPlatform,
-  just,
-  libcosmicAppHook,
-  which,
 }:
 
-rustPlatform.buildRustPackage (finalAttrs: {
+cosmic-notifications.overrideAttrs (finalAttrs: {
   pname = "cosmic-notifications";
   version = "epoch-1.0.16-unstable-2026-04-29";
 
@@ -20,31 +15,4 @@ rustPlatform.buildRustPackage (finalAttrs: {
   };
 
   cargoHash = "sha256-EIwYabYWSHTMnNFcammidn3bI4fc6JFdcVkGj7RmWqA=";
-
-  nativeBuildInputs = [
-    just
-    which
-    libcosmicAppHook
-  ];
-
-  dontUseJustBuild = true;
-  # Runs the default checkPhase instead
-  dontUseJustCheck = true;
-
-  justFlags = [
-    "--set"
-    "prefix"
-    (placeholder "out")
-    "--set"
-    "cargo-target-dir"
-    "target/${stdenv.hostPlatform.rust.cargoShortTarget}"
-  ];
-
-  meta = {
-    homepage = "https://github.com/pop-os/cosmic-notifications";
-    description = "Notifications for the COSMIC Desktop Environment";
-    mainProgram = "cosmic-notifications";
-    license = lib.licenses.gpl3Only;
-    platforms = lib.platforms.linux;
-  };
 })

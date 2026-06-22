@@ -1,21 +1,9 @@
 {
-  lib,
-  stdenv,
+  cosmic-edit,
   fetchFromGitHub,
-  rustPlatform,
-  cosmic-icons,
-  just,
-  pkg-config,
-  libcosmicAppHook,
-  libinput,
-  fontconfig,
-  freetype,
-  glib,
 }:
-
-rustPlatform.buildRustPackage (finalAttrs: {
-  pname = "cosmic-edit";
-  version = "epoch-1.0.16-unstable-2026-06-17";
+cosmic-edit.overrideAttrs (finalAttrs: {
+  version = "epoch-1.0.15-unstable-2026-06-02";
 
   src = fetchFromGitHub {
     owner = "pop-os";
@@ -24,46 +12,5 @@ rustPlatform.buildRustPackage (finalAttrs: {
     hash = "sha256-Un/j9J7nxnBfrt5HI416fbhywt707PXWY0gB7voemls=";
   };
 
-  cargoHash = "sha256-/qcpAR2nvC/MYa5QuCLiZFQgos5SlYtspZsNuMLJFHk=";
-
-  postPatch = ''
-    substituteInPlace justfile --replace-fail '#!/usr/bin/env' "#!$(command -v env)"
-  '';
-
-  nativeBuildInputs = [
-    libcosmicAppHook
-    just
-    pkg-config
-  ];
-  buildInputs = [
-    glib
-    libinput
-    fontconfig
-    freetype
-  ];
-
-  dontUseJustBuild = true;
-  dontUseJustCheck = true;
-
-  justFlags = [
-    "--set"
-    "prefix"
-    (placeholder "out")
-    "--set"
-    "cargo-target-dir"
-    "target/${stdenv.hostPlatform.rust.cargoShortTarget}"
-  ];
-
-  postInstall = ''
-    wrapProgram "$out/bin/cosmic-edit" \
-      --suffix XDG_DATA_DIRS : "${cosmic-icons}/share"
-  '';
-
-  meta = with lib; {
-    homepage = "https://github.com/pop-os/cosmic-edit";
-    description = "Text Editor for the COSMIC Desktop Environment";
-    mainProgram = "cosmic-edit";
-    license = licenses.gpl3Only;
-    platforms = platforms.linux;
-  };
+  cargoHash = "sha256-InzFwzGUM4IH8kaULzLboDfwc6U5fcTdN6+sx5SLZJo=";
 })

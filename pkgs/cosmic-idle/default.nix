@@ -1,20 +1,9 @@
-# SPDX-License-Identifier: MIT
-# SPDX-FileCopyrightText: Lily Foster <lily@lily.flowers>
-# Portions of this code are adapted from nixos-cosmic
-# https://github.com/lilyinstarlight/nixos-cosmic
 {
-  lib,
-  stdenv,
-  rustPlatform,
+  cosmic-idle,
   fetchFromGitHub,
-  libcosmicAppHook,
-  just,
-  bash,
 }:
-
-rustPlatform.buildRustPackage (finalAttrs: {
-  pname = "cosmic-idle";
-  version = "epoch-1.0.16-unstable-2026-02-13";
+cosmic-idle.overrideAttrs (finalAttrs: {
+  version = "epoch-1.0.15-unstable-2026-02-13";
 
   src = fetchFromGitHub {
     owner = "pop-os";
@@ -23,34 +12,5 @@ rustPlatform.buildRustPackage (finalAttrs: {
     hash = "sha256-0tcrOfVT5b57ev3b5F2U78F2QPGFwp94bqFVNyKH0Yk=";
   };
 
-  cargoHash = "sha256-wAjFC6qAC3nllbnZf0KVaZTEztNYo6GTvwcp5FYmXLw=";
-
-  nativeBuildInputs = [
-    just
-    libcosmicAppHook
-  ];
-
-  dontUseJustBuild = true;
-  dontUseJustCheck = true;
-
-  justFlags = [
-    "--set"
-    "prefix"
-    (placeholder "out")
-    "--set"
-    "cargo-target-dir"
-    "target/${stdenv.hostPlatform.rust.cargoShortTarget}"
-  ];
-
-  postPatch = ''
-    substituteInPlace src/main.rs --replace-fail '"/bin/sh"' '"${lib.getExe' bash "sh"}"'
-  '';
-
-  meta = {
-    description = "Idle daemon for the COSMIC Desktop Environment";
-    homepage = "https://github.com/pop-os/cosmic-idle";
-    license = lib.licenses.gpl3Only;
-    mainProgram = "cosmic-idle";
-    sourceProvenance = [ lib.sourceTypes.fromSource ];
-  };
+  cargoHash = "sha256-MI52HOBKpmbreOSrnWAJ45IZtbxNUWL69iocjRbGDa8=";
 })

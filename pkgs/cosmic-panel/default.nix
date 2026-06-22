@@ -1,15 +1,10 @@
 {
-  lib,
-  stdenv,
-  rustPlatform,
+  cosmic-panel,
   fetchFromGitHub,
-  libcosmicAppHook,
-  just,
 }:
 
-rustPlatform.buildRustPackage (finalAttrs: {
-  pname = "cosmic-panel";
-  version = "epoch-1.0.16-unstable-2026-06-17";
+cosmic-panel.overrideAttrs (finalAttrs: {
+  version = "epoch-1.0.15-unstable-2026-05-27";
 
   src = fetchFromGitHub {
     owner = "pop-os";
@@ -19,29 +14,4 @@ rustPlatform.buildRustPackage (finalAttrs: {
   };
 
   cargoHash = "sha256-6E+bAi1f6gOZh64wyvLMKZiZNlMexPV+ZzS3riOx9xM=";
-
-  nativeBuildInputs = [
-    just
-    libcosmicAppHook
-  ];
-
-  dontUseJustBuild = true;
-  dontUseJustCheck = true;
-
-  justFlags = [
-    "--set"
-    "prefix"
-    (placeholder "out")
-    "--set"
-    "cargo-target-dir"
-    "target/${stdenv.hostPlatform.rust.cargoShortTarget}"
-  ];
-
-  meta = {
-    homepage = "https://github.com/pop-os/cosmic-panel";
-    description = "Panel for the COSMIC Desktop Environment";
-    mainProgram = "cosmic-panel";
-    license = lib.licenses.gpl3Only;
-    platforms = lib.platforms.linux;
-  };
 })
