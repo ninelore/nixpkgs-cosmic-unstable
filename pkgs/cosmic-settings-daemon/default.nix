@@ -14,13 +14,13 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cosmic-settings-daemon";
-  version = "epoch-1.2.0-unstable-2026-07-02";
+  version = "epoch-1.2.0-unstable-2026-07-07";
 
   src = fetchFromGitHub {
     owner = "pop-os";
     repo = "cosmic-settings-daemon";
-    rev = "24ab5c28eb5876665752cd5e9405b7de17e2b99a";
-    hash = "sha256-s8IidO7UYmAHgi5hKwxtAQy6b/hMtTcHYxZ8L8Lfcgs=";
+    rev = "8c54bbbc10485c31e8717c21e119e19b87eeb3ea";
+    hash = "sha256-hgvw7+/3olCitNgHVEJfB8q274Ya+FegUhTHJ74U2EY=";
   };
 
   postPatch = ''
@@ -30,7 +30,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
       --replace-fail '/usr/share/themes/adw-gtk3' '${adw-gtk3}/share/themes/adw-gtk3'
   '';
 
-  cargoHash = "sha256-VCZ7xbcK+TKk/e6X6g1r2MlRZ7jUHiygIddRKV4ck68=";
+  cargoHash = "sha256-WuscaiN3Dg/BcCC7czIUPq6jALLu4RHvwHEqprK7ClE=";
 
   nativeBuildInputs = [ pkg-config ];
   buildInputs = [

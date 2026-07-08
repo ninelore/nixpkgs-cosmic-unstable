@@ -18,16 +18,16 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cosmic-comp";
-  version = "epoch-1.2.0-unstable-2026-07-06";
+  version = "epoch-1.2.0-unstable-2026-07-08";
 
   src = fetchFromGitHub {
     owner = "pop-os";
     repo = "cosmic-comp";
-    rev = "031fdc389aaa4dac8546e0fc429bbea2295cc00d";
-    hash = "sha256-Gz8bV3OKurmnM4bnzn5npw096JGYCwlp0oPFcdNtoIY=";
+    rev = "373a44d43105a2c5563ee80657dae3d312d7f508";
+    hash = "sha256-eAJcXmwQrHTfZNA2kgwv3WbxeFwsy6OOk1rpxxwaNao=";
   };
 
-  cargoHash = "sha256-Yi1nVvWmFzlXxHN01BeeGc9YRqrRoVXTqehisOrGWS0=";
+  cargoHash = "sha256-2Krms3DyCf9dvm1sJAz3Wzj54szD3Or0E7HrfbhONNc=";
 
   nativeBuildInputs = [
     libcosmicAppHook
